@@ -31,6 +31,12 @@ const Waitlist = () => {
     if (!validate()) return;
     setLoading(true);
 
+    if (!supabase) {
+      toast({ title: "Something went wrong", description: "Please try again later or contact us directly.", variant: "destructive" });
+      setLoading(false);
+      return;
+    }
+
     try {
       const { error } = await supabase.from("waitlist").insert({
         name: name.trim(),
