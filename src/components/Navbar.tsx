@@ -11,8 +11,8 @@ const Navbar = () => {
         Moh's <span className="text-primary">Automation</span>
       </a>
 
-      {/* Desktop links */}
       <div className="hidden md:flex items-center gap-8">
+        <a href="/demos" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Demos</a>
         <a href="#services" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Services</a>
         <a href="#how-it-works" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Process</a>
         <a href="#faq" className="text-sm text-muted-foreground hover:text-foreground transition-colors">FAQ</a>
@@ -43,6 +43,7 @@ const Navbar = () => {
             className="absolute top-full left-0 right-0 bg-background/95 backdrop-blur-xl border-b border-border flex flex-col items-center gap-4 py-6 md:hidden"
           >
             {[
+              { href: "/demos", label: "Demos" },
               { href: "#services", label: "Services" },
               { href: "#how-it-works", label: "Process" },
               { href: "#faq", label: "FAQ" },
