@@ -1,18 +1,19 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-[5vw] py-4 bg-background/85 backdrop-blur-xl border-b border-border">
-      <a href="#" className="font-display text-xl font-extrabold tracking-tight" aria-label="Moh's Automation — Home">
+      <Link to="/" className="font-display text-xl font-extrabold tracking-tight" aria-label="Moh's Automation — Home">
         Moh's <span className="text-primary">Automation</span>
-      </a>
+      </Link>
 
       <div className="hidden md:flex items-center gap-8">
-        <a href="/demos" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Demos</a>
+        <Link to="/demos" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Demos</Link>
         <a href="#services" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Services</a>
         <a href="#how-it-works" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Process</a>
         <a href="#faq" className="text-sm text-muted-foreground hover:text-foreground transition-colors">FAQ</a>
@@ -44,20 +45,31 @@ const Navbar = () => {
           >
             {[
               { href: "/demos", label: "Demos" },
-              { href: "#services", label: "Services" },
-              { href: "#how-it-works", label: "Process" },
-              { href: "#faq", label: "FAQ" },
-              { href: "#contact", label: "Contact" },
-            ].map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className="text-muted-foreground hover:text-foreground transition-colors text-base"
-              >
-                {link.label}
-              </a>
-            ))}
+              { href: "/#services", label: "Services" },
+              { href: "/#how-it-works", label: "Process" },
+              { href: "/#faq", label: "FAQ" },
+              { href: "/#contact", label: "Contact" },
+            ].map((link) => 
+              link.href.startsWith("/#") ? (
+                <a
+                  key={link.href}
+                  href={link.href === "/#services" ? "#services" : link.href === "/#how-it-works" ? "#how-it-works" : link.href === "/#faq" ? "#faq" : "#contact"} // Keep hash if on same page, but this is simpler
+                  onClick={() => setOpen(false)}
+                  className="text-muted-foreground hover:text-foreground transition-colors text-base"
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  onClick={() => setOpen(false)}
+                  className="text-muted-foreground hover:text-foreground transition-colors text-base"
+                >
+                  {link.label}
+                </Link>
+              )
+            )}
             <a
               href="#waitlist"
               onClick={() => setOpen(false)}
