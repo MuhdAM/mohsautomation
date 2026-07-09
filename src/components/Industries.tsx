@@ -26,13 +26,18 @@ const Industries = () => (
       transition={{ delay: 0.1 }}
       className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
     >
-      {industries.map((ind) => (
-        <div key={ind.title} className="bg-foreground/[0.04] border border-border rounded-xl p-6 hover:border-primary/30 hover:-translate-y-1 transition-all">
-          <ind.icon size={28} className="text-primary mb-4" />
-          <h3 className="font-display text-base font-bold mb-2">{ind.title}</h3>
-          <p className="text-muted-foreground text-sm">{ind.desc}</p>
-        </div>
-      ))}
+      {industries.map((ind, i) => {
+        const c = i % 3 === 0 ? "hsl(var(--accent-blue))" : i % 3 === 1 ? "hsl(var(--accent-emerald))" : "hsl(var(--accent-purple))";
+        return (
+          <div key={ind.title} className="glass-card glass-card-hover rounded-xl p-6">
+            <div className="w-11 h-11 rounded-lg flex items-center justify-center mb-4" style={{ background: `${c.replace(")", " / 0.15)")}` }}>
+              <ind.icon size={22} style={{ color: c }} />
+            </div>
+            <h3 className="font-display text-base font-bold mb-2">{ind.title}</h3>
+            <p className="text-muted-foreground text-sm">{ind.desc}</p>
+          </div>
+        );
+      })}
     </motion.div>
   </section>
 );
