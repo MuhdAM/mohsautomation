@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,48 +6,48 @@
 
 @layer base {
   :root {
-    --background: 222 50% 5%;
-    --foreground: 220 20% 96%;
+    --background: 240 10% 8%;
+    --foreground: 0 0% 98%;
 
-    --card: 222 40% 7%;
-    --card-foreground: 220 20% 96%;
+    --card: 240 10% 12%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 222 40% 7%;
-    --popover-foreground: 220 20% 96%;
+    --popover: 240 10% 12%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 166 100% 39%;
-    --primary-foreground: 166 100% 5%;
+    --primary: 166 72% 26%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 216 50% 10%;
-    --secondary-foreground: 220 20% 96%;
+    --secondary: 240 10% 16%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 220 15% 15%;
-    --muted-foreground: 218 15% 55%;
+    --muted: 240 5% 26%;
+    --muted-foreground: 240 5% 70%;
 
-    --accent: 216 100% 50%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 71 100% 68%;
+    --accent-foreground: 240 10% 8%;
 
-    --destructive: 0 72% 51%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 100% / 0.07;
-    --input: 0 0% 100% / 0.07;
-    --ring: 166 100% 39%;
+    --border: 0 0% 100% / 0.1;
+    --input: 0 0% 100% / 0.1;
+    --ring: 166 72% 26%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
     /* Custom tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(166 100% 39%) 0%, hsl(216 100% 50%) 100%);
-    --gradient-tri: linear-gradient(135deg, hsl(216 100% 55%) 0%, hsl(262 83% 62%) 50%, hsl(160 84% 45%) 100%);
-    --bg-elevated: 222 35% 9%;
-    --bg-surface: 222 30% 12%;
-    --glow-primary: 0 0 30px hsl(166 100% 39% / 0.25);
-    --glow-primary-hover: 0 6px 40px hsl(166 100% 39% / 0.35);
+    --gradient-primary: linear-gradient(135deg, hsl(166 72% 26%) 0%, hsl(166 80% 20%) 100%);
+    --gradient-tri: linear-gradient(135deg, hsl(166 72% 26%) 0%, hsl(71 100% 68%) 100%);
+    --bg-elevated: 240 10% 10%;
+    --bg-surface: 240 10% 14%;
+    --glow-primary: 0 0 30px hsl(166 72% 26% / 0.3);
+    --glow-primary-hover: 0 6px 40px hsl(166 72% 26% / 0.5);
 
     /* Reference accent trio */
-    --accent-blue: 216 100% 55%;
-    --accent-emerald: 160 84% 45%;
-    --accent-purple: 262 83% 62%;
+    --accent-blue: 166 72% 26%;
+    --accent-emerald: 71 100% 68%;
+    --accent-purple: 240 10% 30%;
   }
 
   * {
@@ -56,12 +56,12 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
     overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Bricolage Grotesque', sans-serif;
+    font-family: 'Lexend', sans-serif;
   }
 }
 

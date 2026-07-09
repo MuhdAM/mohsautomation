@@ -9,64 +9,66 @@ const fadeUp = (delay = 0) => ({
 const Hero = () => (
   <section
     aria-labelledby="hero-heading"
-    className="relative min-h-screen flex flex-col items-center justify-center text-center px-[5vw] pt-24 md:pt-32 pb-16 overflow-hidden"
+    className="relative min-h-screen flex flex-col items-center justify-center text-center px-[5vw] pt-28 md:pt-36 pb-20 overflow-hidden bg-[#101013]"
   >
-    {/* Floating decorative dots — reference-inspired */}
+    {/* Floating decorative dots — enterprise minimalist */}
     <div aria-hidden="true" className="absolute inset-0 pointer-events-none">
-      <span className="absolute top-24 left-[8%] w-3 h-3 rounded-full bg-[hsl(var(--accent-blue))] float-gentle opacity-70 shadow-[0_0_20px_hsl(var(--accent-blue)/0.7)]" />
-      <span className="absolute top-40 right-[12%] w-4 h-4 rounded-full bg-[hsl(var(--accent-emerald))] drift-left opacity-60 shadow-[0_0_22px_hsl(var(--accent-emerald)/0.7)]" />
-      <span className="absolute bottom-40 left-[18%] w-3.5 h-3.5 rounded-full bg-[hsl(var(--accent-purple))] drift-right opacity-70 shadow-[0_0_22px_hsl(var(--accent-purple)/0.7)]" />
-      <span className="absolute top-1/2 right-[6%] w-2 h-2 rounded-full bg-primary float-gentle opacity-80 shadow-[0_0_18px_hsl(var(--primary)/0.8)]" style={{ animationDelay: "-2s" }} />
-      <span className="absolute bottom-24 right-[22%] w-2.5 h-2.5 rounded-full bg-[hsl(var(--accent-blue))] drift-right opacity-60" style={{ animationDelay: "-4s" }} />
+      <span className="absolute top-24 left-[10%] w-2 h-2 rounded-full bg-primary/40 float-gentle shadow-[0_0_15px_rgba(18,113,91,0.5)]" />
+      <span className="absolute top-1/3 right-[15%] w-3 h-3 rounded-full bg-primary/30 drift-left shadow-[0_0_20px_rgba(18,113,91,0.4)]" />
+      <span className="absolute bottom-1/3 left-[20%] w-2.5 h-2.5 rounded-full bg-white/10 drift-right" />
+      <span className="absolute top-1/2 right-[8%] w-1.5 h-1.5 rounded-full bg-primary/60 float-gentle" style={{ animationDelay: "-2s" }} />
+      <span className="absolute bottom-24 right-[25%] w-2 h-2 rounded-full bg-white/5 drift-right" style={{ animationDelay: "-4s" }} />
     </div>
 
     <motion.div
       {...fadeUp(0)}
-      className="inline-flex items-center gap-2 glass-card px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-8 text-primary"
+      className="inline-flex items-center gap-2 bg-white/5 border border-white/10 backdrop-blur-md px-4 py-1.5 rounded-full text-[11px] font-semibold uppercase tracking-[0.15em] mb-8 text-white/80"
     >
-      <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse-dot" />
-      Now Accepting Early Access
+      <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse shadow-[0_0_8px_rgba(18,113,91,0.8)]" />
+      Pioneering AI Integration
     </motion.div>
 
     <motion.h1
       {...fadeUp(0.1)}
       id="hero-heading"
-      className="font-display text-[clamp(2.6rem,7vw,5.5rem)] font-extrabold leading-[1.05] tracking-tighter max-w-[900px]"
+      className="font-display text-[clamp(2.5rem,6vw,5.5rem)] font-bold leading-[1.1] tracking-tight max-w-[1000px] text-white"
     >
-      AI Automation &amp; Websites<br />Built for <span className="font-bagel text-gradient-tri">Real Results</span>
+      We Build Custom <span className="text-primary font-extrabold italic">AI Systems</span><br />
+      For Enterprise Growth.
     </motion.h1>
 
-    <motion.p {...fadeUp(0.2)} className="mt-6 text-muted-foreground text-[clamp(1rem,2vw,1.2rem)] max-w-[620px] font-light">
-      We help businesses and hospitals cut costs, eliminate repetitive work, and grow faster — with custom AI automations and high-converting web experiences.
+    <motion.p {...fadeUp(0.2)} className="mt-8 text-muted-foreground text-[clamp(1.1rem,2vw,1.3rem)] max-w-[700px] font-normal leading-relaxed">
+      Transform your operations with bespoke AI agents, intelligent workflow automations, and high-performance digital infrastructure.
     </motion.p>
 
-    <motion.div {...fadeUp(0.3)} className="flex flex-wrap gap-4 justify-center mt-10">
+    <motion.div {...fadeUp(0.3)} className="flex flex-wrap gap-5 justify-center mt-12">
       <a
-        href="#waitlist"
-        className="bg-gradient-tri text-white px-8 py-3.5 rounded-full text-base font-semibold pulse-glow hover:-translate-y-0.5 hover:scale-[1.03] transition-all"
+        href="#contact"
+        className="bg-primary text-white px-8 py-4 rounded-full text-base font-bold shadow-[0_0_25px_rgba(18,113,91,0.4)] hover:bg-primary/90 hover:shadow-[0_0_35px_rgba(18,113,91,0.6)] hover:-translate-y-1 transition-all duration-300"
       >
-        Join the Waitlist →
+        Get Automated
       </a>
       <a
-        href="#services"
-        className="glass-card glass-card-hover text-foreground px-8 py-3.5 rounded-full text-base font-medium"
+        href="/demos"
+        className="bg-white/5 border border-white/10 text-white px-8 py-4 rounded-full text-base font-medium hover:bg-white/10 transition-colors"
       >
-        See What We Build
+        View Live Demos
       </a>
     </motion.div>
 
-    <motion.div {...fadeUp(0.4)} className="flex flex-wrap gap-6 justify-center mt-16">
+    <motion.div {...fadeUp(0.4)} className="grid grid-cols-2 md:flex flex-wrap gap-4 md:gap-8 justify-center mt-20 w-full max-w-4xl">
       {[
-        { num: "80", suffix: "%", label: "Tasks Automated", color: "hsl(var(--accent-blue))" },
-        { num: "3", suffix: "×", label: "Faster Operations", color: "hsl(var(--accent-emerald))" },
-        { num: "24", suffix: "/7", label: "AI Always Working", color: "hsl(var(--accent-purple))" },
+        { num: "80", suffix: "%", label: "Tasks Automated" },
+        { num: "3", suffix: "×", label: "Faster Operations" },
+        { num: "24", suffix: "/7", label: "AI Always Working" },
+        { num: "100", suffix: "+", label: "Hours Saved/Mo" },
       ].map((s) => (
-        <div key={s.label} className="glass-card glass-card-hover rounded-2xl px-6 py-4 text-center min-w-[130px]">
-          <div className="font-bagel text-3xl leading-none">
+        <div key={s.label} className="bg-white/[0.02] border border-white/5 rounded-2xl px-6 py-5 text-center flex-1 min-w-[140px] hover:bg-white/[0.04] transition-colors">
+          <div className="font-display text-4xl font-bold text-white mb-2">
             {s.num}
-            <span style={{ color: s.color }}>{s.suffix}</span>
+            <span className="text-primary">{s.suffix}</span>
           </div>
-          <div className="text-[10px] text-muted-foreground uppercase tracking-wider mt-1.5">{s.label}</div>
+          <div className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">{s.label}</div>
         </div>
       ))}
     </motion.div>

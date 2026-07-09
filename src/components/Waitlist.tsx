@@ -76,12 +76,12 @@ const Waitlist = () => {
 
   if (success) {
     return (
-      <section id="waitlist" className="border-y border-border bg-[linear-gradient(135deg,hsl(166_100%_39%/0.06)_0%,hsl(216_100%_50%/0.06)_100%)]">
-        <div className="max-w-[680px] mx-auto px-[5vw] py-20 text-center">
-          <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="bg-primary/10 border border-primary/25 rounded-2xl p-12">
-            <div className="text-5xl mb-4">✅</div>
-            <h3 className="font-display text-2xl font-extrabold mb-2">You're on the list!</h3>
-            <p className="text-muted-foreground">Thank you for joining — we'll be in touch with your free strategy call details and early-access pricing.</p>
+      <section id="waitlist" className="bg-[#101013] border-t border-white/5">
+        <div className="max-w-[680px] mx-auto px-[5vw] py-24 text-center">
+          <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="bg-[#151518] border border-white/10 rounded-2xl p-12 shadow-[0_0_40px_rgba(18,113,91,0.1)]">
+            <div className="text-5xl mb-6">✅</div>
+            <h3 className="font-display text-3xl font-bold mb-3 text-white">Application Received</h3>
+            <p className="text-muted-foreground text-lg">Thank you. We will review your submission and contact you shortly with strategy call details.</p>
           </motion.div>
         </div>
       </section>
@@ -89,19 +89,18 @@ const Waitlist = () => {
   }
 
   return (
-    <section id="waitlist" className="border-y border-border bg-[linear-gradient(135deg,hsl(166_100%_39%/0.06)_0%,hsl(216_100%_50%/0.06)_100%)]" aria-labelledby="waitlist-heading">
-      <div className="max-w-[680px] mx-auto px-[5vw] py-20 text-center">
+    <section id="waitlist" className="bg-[#101013] border-t border-white/5 relative overflow-hidden" aria-labelledby="waitlist-heading">
+      <div aria-hidden="true" className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[300px] bg-primary/20 blur-[120px] rounded-[100%] pointer-events-none opacity-50" />
+      
+      <div className="max-w-[680px] mx-auto px-[5vw] py-24 text-center relative z-10">
         <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-          <span className="text-xs font-bold text-primary uppercase tracking-[0.1em]">Early Access</span>
-          <h2 id="waitlist-heading" className="font-display text-[clamp(1.8rem,4vw,3rem)] font-extrabold tracking-tight leading-tight mt-4 mb-3">
-            Get in Early.<br />Get the Best Rates.
+          <span className="text-xs font-bold text-primary uppercase tracking-[0.15em]">Enterprise Waitlist</span>
+          <h2 id="waitlist-heading" className="font-display text-[clamp(2rem,4vw,3.5rem)] font-bold tracking-tight leading-[1.1] mt-4 mb-4 text-white">
+            Secure Your Implementation
           </h2>
-          <p className="text-muted-foreground mb-6">
-            We're onboarding our first clients now. Waitlist members get priority access, founder pricing, and a free strategy call — no strings attached.
+          <p className="text-muted-foreground text-lg mb-8">
+            We are currently onboarding a limited number of enterprise clients. Apply now for priority access and a complimentary strategy consultation.
           </p>
-          <div className="text-sm text-muted-foreground mb-8">
-            <strong className="text-primary">47+</strong> people already on the waitlist
-          </div>
         </motion.div>
 
         <motion.form
@@ -111,36 +110,36 @@ const Waitlist = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="flex flex-col gap-5 text-left"
+          className="flex flex-col gap-6 text-left bg-[#151518] p-8 md:p-10 rounded-2xl border border-white/5 shadow-2xl"
         >
           <div>
-            <label htmlFor="waitlist-name" className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1.5 block">Full Name</label>
+            <label htmlFor="waitlist-name" className="text-xs font-semibold text-muted-foreground uppercase tracking-[0.1em] mb-2 block">Full Name</label>
             <input id="waitlist-name" type="text" autoComplete="name" value={name} onChange={(e) => { setName(e.target.value); setErrors((p) => ({ ...p, name: "" })); }} placeholder="e.g. Aisha Mohammed" className={inputClass("name")} />
             {errors.name && <p className="text-xs text-destructive mt-1.5">⚠ {errors.name}</p>}
           </div>
 
           <div>
-            <label htmlFor="waitlist-email" className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1.5 block">Email Address</label>
+            <label htmlFor="waitlist-email" className="text-xs font-semibold text-muted-foreground uppercase tracking-[0.1em] mb-2 block">Work Email</label>
             <input id="waitlist-email" type="email" autoComplete="email" value={email} onChange={(e) => { setEmail(e.target.value); setErrors((p) => ({ ...p, email: "" })); }} placeholder="you@company.com" className={inputClass("email")} />
             {errors.email && <p className="text-xs text-destructive mt-1.5">⚠ {errors.email}</p>}
           </div>
 
           <div>
-            <label htmlFor="waitlist-need" className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1.5 block">What business process do you want to automate?</label>
-            <textarea id="waitlist-need" value={need} onChange={(e) => { setNeed(e.target.value); setErrors((p) => ({ ...p, need: "" })); }} rows={4} placeholder="e.g. We manually process 200+ patient appointment reminders every week..." className={inputClass("need") + " resize-none"} />
+            <label htmlFor="waitlist-need" className="text-xs font-semibold text-muted-foreground uppercase tracking-[0.1em] mb-2 block">Implementation Details</label>
+            <textarea id="waitlist-need" value={need} onChange={(e) => { setNeed(e.target.value); setErrors((p) => ({ ...p, need: "" })); }} rows={4} placeholder="Briefly describe the processes you're looking to automate or the digital infrastructure you need..." className={inputClass("need") + " resize-none"} />
             {errors.need && <p className="text-xs text-destructive mt-1.5">⚠ {errors.need}</p>}
           </div>
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-gradient-tri text-white py-3.5 rounded-lg font-semibold pulse-glow hover:-translate-y-0.5 hover:scale-[1.01] transition-all disabled:opacity-60 disabled:cursor-not-allowed disabled:translate-y-0 flex items-center justify-center gap-2 mt-2"
+            className="w-full bg-primary text-white py-4 rounded-xl text-base font-bold shadow-[0_0_20px_rgba(18,113,91,0.4)] hover:bg-primary/90 hover:-translate-y-0.5 transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed disabled:translate-y-0 flex items-center justify-center gap-2 mt-4"
           >
-            {loading ? <><Loader2 size={18} className="animate-spin" /> Submitting…</> : "Reserve My Spot →"}
+            {loading ? <><Loader2 size={20} className="animate-spin" /> Processing…</> : "Submit Application"}
           </button>
 
-          <p className="text-xs text-muted-foreground text-center flex items-center justify-center gap-1.5">
-            <Lock size={12} /> No spam, ever. We only reach out when ready to take on your project.
+          <p className="text-xs text-muted-foreground text-center flex items-center justify-center gap-1.5 mt-2 font-medium">
+            <Lock size={12} className="text-primary" /> Strict privacy. Your data is secure.
           </p>
         </motion.form>
       </div>

@@ -7,7 +7,7 @@ const AmbientOrbs = () => (
         height: 520,
         top: "-120px",
         left: "-100px",
-        background: "radial-gradient(circle, hsl(216 100% 55% / 0.55), transparent 70%)",
+        background: "radial-gradient(circle, hsl(166 72% 26% / 0.35), transparent 70%)",
       }}
     />
     <div
@@ -17,7 +17,7 @@ const AmbientOrbs = () => (
         height: 480,
         top: "40%",
         right: "-140px",
-        background: "radial-gradient(circle, hsl(262 83% 62% / 0.45), transparent 70%)",
+        background: "radial-gradient(circle, hsl(71 100% 68% / 0.15), transparent 70%)",
         animationDelay: "-6s",
       }}
     />
@@ -28,7 +28,7 @@ const AmbientOrbs = () => (
         height: 560,
         bottom: "-160px",
         left: "30%",
-        background: "radial-gradient(circle, hsl(160 84% 45% / 0.4), transparent 70%)",
+        background: "radial-gradient(circle, hsl(166 80% 20% / 0.4), transparent 70%)",
         animationDelay: "-12s",
       }}
     />

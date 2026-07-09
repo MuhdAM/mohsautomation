@@ -8,32 +8,34 @@ const steps = [
 ];
 
 const HowItWorks = () => (
-  <section id="how-it-works" className="max-w-[1200px] mx-auto px-[5vw] py-20">
-    <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-      <span className="text-xs font-bold text-primary uppercase tracking-[0.1em]">The Process</span>
-      <h2 className="font-display text-[clamp(1.8rem,4vw,3rem)] font-extrabold tracking-tight leading-tight mt-4 mb-4">
-        Simple. Fast. Effective.
-      </h2>
-      <p className="text-muted-foreground text-lg max-w-[550px] font-light mb-12">
-        We don't waste your time. Here's how we go from first conversation to live system.
-      </p>
-    </motion.div>
+  <section id="how-it-works" className="relative bg-[#101013] border-t border-white/5 py-24">
+    <div className="max-w-[1200px] mx-auto px-[5vw]">
+      <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+        <span className="text-xs font-bold text-primary uppercase tracking-[0.15em]">The Process</span>
+        <h2 className="font-display text-[clamp(2rem,4vw,3.5rem)] font-bold tracking-tight leading-[1.1] mt-4 mb-4 text-white">
+          Simple. Agile. Scalable.
+        </h2>
+        <p className="text-muted-foreground text-lg max-w-[600px] font-normal mb-16">
+          We strip away the agency bloat. Here's how we move from strategy to a deployed enterprise system.
+        </p>
+      </motion.div>
 
-    <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: 0.1 }}
-      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
-    >
-      {steps.map((s) => (
-        <div key={s.num} className="pl-6 border-l-2 border-border hover:border-primary transition-colors group">
-          <div className="font-display text-5xl font-extrabold text-primary/10 group-hover:text-primary/20 transition-colors leading-none mb-2">{s.num}</div>
-          <h3 className="font-display text-base font-bold mb-2">{s.title}</h3>
-          <p className="text-muted-foreground text-sm">{s.desc}</p>
-        </div>
-      ))}
-    </motion.div>
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.1 }}
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10"
+      >
+        {steps.map((s) => (
+          <div key={s.num} className="pl-6 border-l-2 border-white/10 hover:border-primary transition-colors duration-300 group">
+            <div className="font-display text-[3.5rem] font-black text-white/5 group-hover:text-primary/20 transition-colors duration-300 leading-none mb-4">{s.num}</div>
+            <h3 className="font-display text-lg font-bold mb-3 text-white">{s.title}</h3>
+            <p className="text-muted-foreground text-[15px] leading-relaxed">{s.desc}</p>
+          </div>
+        ))}
+      </motion.div>
+    </div>
   </section>
 );
 

@@ -18,19 +18,19 @@ const metrics = [
 ];
 
 const WhyUs = () => (
-  <section className="relative" aria-labelledby="whyus-heading">
-    <div className="max-w-[1200px] mx-auto px-[5vw] py-20">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+  <section className="relative bg-[#101013] border-t border-white/5" aria-labelledby="whyus-heading">
+    <div className="max-w-[1200px] mx-auto px-[5vw] py-24">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
         <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-          <span className="text-xs font-bold text-primary uppercase tracking-[0.1em]">Why Moh's Automation</span>
-          <h2 id="whyus-heading" className="font-display text-[clamp(1.8rem,4vw,3rem)] font-extrabold tracking-tight leading-tight mt-4 mb-8">
-            Built Different.<br />Priced Fairly.
+          <span className="text-xs font-bold text-primary uppercase tracking-[0.15em]">Why Moh's Automation</span>
+          <h2 id="whyus-heading" className="font-display text-[clamp(2rem,4vw,3.5rem)] font-bold tracking-tight leading-[1.1] mt-4 mb-10 text-white">
+            Built Different.<br />Engineered for Scale.
           </h2>
-          <ul className="flex flex-col gap-4">
+          <ul className="flex flex-col gap-6">
             {reasons.map((r) => (
-              <li key={r} className="flex gap-3 items-start text-muted-foreground text-sm">
-                <span className="flex-shrink-0 w-5 h-5 rounded-full bg-primary/15 flex items-center justify-center mt-0.5">
-                  <Check size={12} className="text-primary" />
+              <li key={r} className="flex gap-4 items-start text-muted-foreground text-[15px] leading-relaxed">
+                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center mt-0.5 border border-primary/20">
+                  <Check size={14} className="text-primary" strokeWidth={2.5} />
                 </span>
                 {r}
               </li>
@@ -43,14 +43,15 @@ const WhyUs = () => (
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="grid grid-cols-2 gap-4"
+          className="grid grid-cols-2 gap-5"
         >
           {metrics.map((m, i) => {
-            const c = ["hsl(var(--accent-blue))", "hsl(var(--accent-emerald))", "hsl(var(--accent-purple))", "hsl(var(--primary))"][i % 4];
             return (
-              <div key={m.label} className="glass-card glass-card-hover rounded-xl p-6">
-                <div className="font-bagel text-4xl leading-none" style={{ color: c }}>{m.num}</div>
-                <div className="text-muted-foreground text-xs mt-3">{m.label}</div>
+              <div key={m.label} className="bg-[#151518] border border-white/5 rounded-2xl p-8 hover:border-primary/40 transition-colors duration-300 shadow-lg">
+                <div className="font-display text-[2.5rem] font-bold leading-none text-white mb-3">
+                  {m.num}
+                </div>
+                <div className="text-primary text-xs font-semibold uppercase tracking-wider">{m.label}</div>
               </div>
             );
           })}
