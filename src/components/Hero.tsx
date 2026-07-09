@@ -11,10 +11,14 @@ const Hero = () => (
     aria-labelledby="hero-heading"
     className="relative min-h-[90vh] flex flex-col items-center justify-center text-center px-[5vw] pt-28 md:pt-36 pb-20 overflow-hidden bg-[#FDFBF7] dark:bg-[#101013] transition-colors duration-300"
   >
-    {/* Smooth Wavy Background Gradients */}
-    <div aria-hidden="true" className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-      <div className="absolute top-[-20%] left-[-10%] w-[70vw] h-[70vw] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/20 via-primary/5 to-transparent blur-[100px] rounded-full mix-blend-screen opacity-60 dark:opacity-40" />
-      <div className="absolute bottom-[-20%] right-[-10%] w-[60vw] h-[60vw] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/30 via-primary/10 to-transparent blur-[120px] rounded-full mix-blend-screen opacity-60 dark:opacity-40" />
+    {/* Custom Wavy Background Image */}
+    <div aria-hidden="true" className="absolute inset-0 pointer-events-none z-0">
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10 dark:opacity-100 transition-opacity duration-300"
+        style={{ backgroundImage: "url('/hero-bg.png')" }}
+      />
+      {/* Bottom fade to blend into the next section */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#FDFBF7] dark:to-[#101013]" />
     </div>
 
     {/* Floating Avatars and Decor */}
