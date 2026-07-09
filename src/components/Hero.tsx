@@ -71,7 +71,7 @@ const Hero = () => (
         className="font-display text-[clamp(2.5rem,6vw,5.5rem)] font-bold leading-[1.15] tracking-tight max-w-[1000px] text-foreground"
       >
         Done-for-you AI <br className="hidden md:block" />
-        <span className="inline-block bg-[#D9FA51] text-[#101013] px-4 py-1 mt-2 rounded-xl transform -rotate-1 shadow-lg dark:shadow-none">
+        <span className="inline-block bg-[#99F6E4] text-[#042F2E] px-4 py-1 mt-2 rounded-xl transform -rotate-1 shadow-lg dark:shadow-[0_0_20px_rgba(153,246,228,0.2)]">
           Plan. Build. Deploy.
         </span><br />
         In just 90 Days
