@@ -11,11 +11,11 @@ const faqs = [
 ];
 
 const FAQ = () => (
-  <section id="faq" className="bg-[#101013] border-t border-white/5 py-24">
+  <section id="faq" className="bg-white dark:bg-[#101013] border-t border-black/5 dark:border-white/5 py-24 transition-colors duration-300">
     <div className="max-w-[800px] mx-auto px-[5vw]">
       <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
         <span className="text-xs font-bold text-primary uppercase tracking-[0.15em]">FAQ</span>
-        <h2 className="font-display text-[clamp(2rem,4vw,3.5rem)] font-bold tracking-tight leading-[1.1] mt-4 text-white">
+        <h2 className="font-display text-[clamp(2rem,4vw,3.5rem)] font-bold tracking-tight leading-[1.1] mt-4 text-foreground">
           Common Questions
         </h2>
       </motion.div>
@@ -23,8 +23,8 @@ const FAQ = () => (
       <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}>
         <Accordion type="single" collapsible className="space-y-4">
           {faqs.map((faq, i) => (
-            <AccordionItem key={i} value={`faq-${i}`} className="bg-[#151518] border border-white/5 hover:border-primary/30 rounded-2xl px-8 transition-colors duration-300">
-              <AccordionTrigger className="font-display font-bold text-base text-white hover:text-primary hover:no-underline py-6">
+            <AccordionItem key={i} value={`faq-${i}`} className="bg-gray-50 dark:bg-[#151518] border border-black/5 dark:border-white/5 hover:border-primary/30 rounded-2xl px-8 transition-colors duration-300">
+              <AccordionTrigger className="font-display font-bold text-base text-foreground hover:text-primary hover:no-underline py-6">
                 {faq.q}
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground text-[15px] pb-6 leading-relaxed">

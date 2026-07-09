@@ -5,15 +5,18 @@ import Services from "@/components/Services";
 import HowItWorks from "@/components/HowItWorks";
 import WhyUs from "@/components/WhyUs";
 import Industries from "@/components/Industries";
+import FeaturesBadges from "@/components/FeaturesBadges";
 import Waitlist from "@/components/Waitlist";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import AmbientOrbs from "@/components/AmbientOrbs";
+import FloatingActions from "@/components/FloatingActions";
 
 const Index = () => (
-  <div className="min-h-screen bg-background text-foreground relative">
+  <div className="min-h-screen bg-background text-foreground relative transition-colors duration-300">
+    <FloatingActions />
     <AmbientOrbs />
     <SEOHead
       description="Moh's Automation is an AI automation agency in Abuja, Nigeria. We build custom AI chatbots, workflow automations, healthcare digital systems, and high-converting websites. Cut costs and grow faster."
@@ -33,6 +36,7 @@ const Index = () => (
       <HowItWorks />
       <WhyUs />
       <Industries />
+      <FeaturesBadges />
       <FAQ />
       <Waitlist />
       <Contact />

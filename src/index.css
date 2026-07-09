@@ -6,6 +6,45 @@
 
 @layer base {
   :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 10%;
+
+    --primary: 166 72% 26%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 5% 96%;
+    --secondary-foreground: 240 10% 10%;
+
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 5% 45%;
+
+    --accent: 71 100% 68%;
+    --accent-foreground: 240 10% 10%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5% 90%;
+    --input: 240 5% 90%;
+    --ring: 166 72% 26%;
+
+    --radius: 0.5rem;
+
+    /* Light Mode Custom tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(166 72% 26%) 0%, hsl(166 80% 20%) 100%);
+    --bg-elevated: 0 0% 98%;
+    --bg-surface: 0 0% 96%;
+    --glow-primary: 0 0 30px hsl(166 72% 26% / 0.15);
+    --glow-primary-hover: 0 6px 40px hsl(166 72% 26% / 0.3);
+  }
+
+  .dark {
     --background: 240 10% 8%;
     --foreground: 0 0% 98%;
 
@@ -34,20 +73,11 @@
     --input: 0 0% 100% / 0.1;
     --ring: 166 72% 26%;
 
-    --radius: 0.5rem;
-
-    /* Custom tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(166 72% 26%) 0%, hsl(166 80% 20%) 100%);
-    --gradient-tri: linear-gradient(135deg, hsl(166 72% 26%) 0%, hsl(71 100% 68%) 100%);
+    /* Dark Mode Custom tokens */
     --bg-elevated: 240 10% 10%;
     --bg-surface: 240 10% 14%;
     --glow-primary: 0 0 30px hsl(166 72% 26% / 0.3);
     --glow-primary-hover: 0 6px 40px hsl(166 72% 26% / 0.5);
-
-    /* Reference accent trio */
-    --accent-blue: 166 72% 26%;
-    --accent-emerald: 71 100% 68%;
-    --accent-purple: 240 10% 30%;
   }
 
   * {
@@ -55,7 +85,7 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground transition-colors duration-300;
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
   }

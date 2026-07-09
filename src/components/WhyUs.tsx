@@ -18,12 +18,12 @@ const metrics = [
 ];
 
 const WhyUs = () => (
-  <section className="relative bg-[#101013] border-t border-white/5" aria-labelledby="whyus-heading">
+  <section className="relative bg-white dark:bg-[#101013] border-t border-black/5 dark:border-white/5 transition-colors duration-300" aria-labelledby="whyus-heading">
     <div className="max-w-[1200px] mx-auto px-[5vw] py-24">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
         <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
           <span className="text-xs font-bold text-primary uppercase tracking-[0.15em]">Why Moh's Automation</span>
-          <h2 id="whyus-heading" className="font-display text-[clamp(2rem,4vw,3.5rem)] font-bold tracking-tight leading-[1.1] mt-4 mb-10 text-white">
+          <h2 id="whyus-heading" className="font-display text-[clamp(2rem,4vw,3.5rem)] font-bold tracking-tight leading-[1.1] mt-4 mb-10 text-foreground">
             Built Different.<br />Engineered for Scale.
           </h2>
           <ul className="flex flex-col gap-6">
@@ -47,8 +47,8 @@ const WhyUs = () => (
         >
           {metrics.map((m, i) => {
             return (
-              <div key={m.label} className="bg-[#151518] border border-white/5 rounded-2xl p-8 hover:border-primary/40 transition-colors duration-300 shadow-lg">
-                <div className="font-display text-[2.5rem] font-bold leading-none text-white mb-3">
+              <div key={m.label} className="bg-gray-50 dark:bg-[#151518] border border-black/5 dark:border-white/5 rounded-2xl p-8 hover:border-primary/40 transition-colors duration-300 shadow-lg">
+                <div className="font-display text-[2.5rem] font-bold leading-none text-foreground mb-3">
                   {m.num}
                 </div>
                 <div className="text-primary text-xs font-semibold uppercase tracking-wider">{m.label}</div>

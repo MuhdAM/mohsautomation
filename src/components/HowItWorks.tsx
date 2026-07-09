@@ -8,11 +8,11 @@ const steps = [
 ];
 
 const HowItWorks = () => (
-  <section id="how-it-works" className="relative bg-[#101013] border-t border-white/5 py-24">
+  <section id="how-it-works" className="relative bg-white dark:bg-[#101013] border-t border-black/5 dark:border-white/5 py-24 transition-colors duration-300">
     <div className="max-w-[1200px] mx-auto px-[5vw]">
       <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
         <span className="text-xs font-bold text-primary uppercase tracking-[0.15em]">The Process</span>
-        <h2 className="font-display text-[clamp(2rem,4vw,3.5rem)] font-bold tracking-tight leading-[1.1] mt-4 mb-4 text-white">
+        <h2 className="font-display text-[clamp(2rem,4vw,3.5rem)] font-bold tracking-tight leading-[1.1] mt-4 mb-4 text-foreground">
           Simple. Agile. Scalable.
         </h2>
         <p className="text-muted-foreground text-lg max-w-[600px] font-normal mb-16">
@@ -28,9 +28,9 @@ const HowItWorks = () => (
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10"
       >
         {steps.map((s) => (
-          <div key={s.num} className="pl-6 border-l-2 border-white/10 hover:border-primary transition-colors duration-300 group">
-            <div className="font-display text-[3.5rem] font-black text-white/5 group-hover:text-primary/20 transition-colors duration-300 leading-none mb-4">{s.num}</div>
-            <h3 className="font-display text-lg font-bold mb-3 text-white">{s.title}</h3>
+          <div key={s.num} className="pl-6 border-l-2 border-black/10 dark:border-white/10 hover:border-primary transition-colors duration-300 group">
+            <div className="font-display text-[3.5rem] font-black text-black/5 dark:text-white/5 group-hover:text-primary/20 transition-colors duration-300 leading-none mb-4">{s.num}</div>
+            <h3 className="font-display text-lg font-bold mb-3 text-foreground">{s.title}</h3>
             <p className="text-muted-foreground text-[15px] leading-relaxed">{s.desc}</p>
           </div>
         ))}

@@ -76,11 +76,11 @@ const Waitlist = () => {
 
   if (success) {
     return (
-      <section id="waitlist" className="bg-[#101013] border-t border-white/5">
+      <section id="waitlist" className="bg-white dark:bg-[#101013] border-t border-black/5 dark:border-white/5 transition-colors duration-300">
         <div className="max-w-[680px] mx-auto px-[5vw] py-24 text-center">
-          <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="bg-[#151518] border border-white/10 rounded-2xl p-12 shadow-[0_0_40px_rgba(18,113,91,0.1)]">
+          <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="bg-gray-50 dark:bg-[#151518] border border-black/10 dark:border-white/10 rounded-2xl p-12 shadow-lg dark:shadow-[0_0_40px_rgba(18,113,91,0.1)] transition-colors duration-300">
             <div className="text-5xl mb-6">✅</div>
-            <h3 className="font-display text-3xl font-bold mb-3 text-white">Application Received</h3>
+            <h3 className="font-display text-3xl font-bold mb-3 text-foreground">Application Received</h3>
             <p className="text-muted-foreground text-lg">Thank you. We will review your submission and contact you shortly with strategy call details.</p>
           </motion.div>
         </div>
@@ -89,13 +89,13 @@ const Waitlist = () => {
   }
 
   return (
-    <section id="waitlist" className="bg-[#101013] border-t border-white/5 relative overflow-hidden" aria-labelledby="waitlist-heading">
+    <section id="waitlist" className="bg-white dark:bg-[#101013] border-t border-black/5 dark:border-white/5 relative overflow-hidden transition-colors duration-300" aria-labelledby="waitlist-heading">
       <div aria-hidden="true" className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[300px] bg-primary/20 blur-[120px] rounded-[100%] pointer-events-none opacity-50" />
       
       <div className="max-w-[680px] mx-auto px-[5vw] py-24 text-center relative z-10">
         <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
           <span className="text-xs font-bold text-primary uppercase tracking-[0.15em]">Enterprise Waitlist</span>
-          <h2 id="waitlist-heading" className="font-display text-[clamp(2rem,4vw,3.5rem)] font-bold tracking-tight leading-[1.1] mt-4 mb-4 text-white">
+          <h2 id="waitlist-heading" className="font-display text-[clamp(2rem,4vw,3.5rem)] font-bold tracking-tight leading-[1.1] mt-4 mb-4 text-foreground">
             Secure Your Implementation
           </h2>
           <p className="text-muted-foreground text-lg mb-8">
@@ -110,7 +110,7 @@ const Waitlist = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="flex flex-col gap-6 text-left bg-[#151518] p-8 md:p-10 rounded-2xl border border-white/5 shadow-2xl"
+          className="flex flex-col gap-6 text-left bg-gray-50 dark:bg-[#151518] p-8 md:p-10 rounded-2xl border border-black/5 dark:border-white/5 shadow-2xl transition-colors duration-300"
         >
           <div>
             <label htmlFor="waitlist-name" className="text-xs font-semibold text-muted-foreground uppercase tracking-[0.1em] mb-2 block">Full Name</label>

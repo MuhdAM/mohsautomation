@@ -11,16 +11,12 @@ const services = [
 ];
 
 const Services = () => (
-  <section id="services" className="relative bg-[#101013] border-t border-white/5" aria-labelledby="services-heading">
+  <section id="services" className="relative bg-white dark:bg-[#101013] border-t border-black/5 dark:border-white/5 transition-colors duration-300" aria-labelledby="services-heading">
     <div className="max-w-[1200px] mx-auto px-[5vw] py-24">
-      <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center md:text-left">
-        <span className="text-xs font-bold text-primary uppercase tracking-[0.15em]">What We Build</span>
-        <h2 id="services-heading" className="font-display text-[clamp(2rem,4vw,3.5rem)] font-bold tracking-tight leading-[1.1] mt-4 mb-4 text-white">
-          End-to-End Solutions<br />for Modern Enterprise
+      <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center">
+        <h2 id="services-heading" className="font-display text-[clamp(2rem,3vw,3rem)] font-normal tracking-tight leading-[1.3] max-w-[900px] mx-auto text-foreground mb-16">
+          Boost efficiency and growth with smart automation - AI chatbots, CRM systems, and reporting dashboards that streamline operations, reduce costs, and enhance customer engagement
         </h2>
-        <p className="text-muted-foreground text-lg max-w-[600px] font-normal mb-16">
-          From intelligent AI agents to high-performance digital infrastructure — we engineer systems that drive growth and cut costs.
-        </p>
       </motion.div>
 
       <motion.div
@@ -28,22 +24,14 @@ const Services = () => (
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.1 }}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
       >
         {services.map((s, i) => (
-          <div key={s.title} className="group bg-[#151518] border border-white/5 hover:border-primary/50 rounded-2xl p-8 relative overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_40px_-15px_rgba(18,113,91,0.5)]">
-            <div
-              aria-hidden="true"
-              className="absolute -top-16 -right-16 w-40 h-40 rounded-full bg-primary opacity-0 group-hover:opacity-10 blur-3xl transition-opacity duration-500"
-            />
-            <div className="relative w-12 h-12 rounded-xl flex items-center justify-center mb-6 bg-primary/10 text-primary group-hover:scale-110 transition-transform duration-300">
-              <s.icon size={24} strokeWidth={1.5} />
+          <div key={s.title} className="group bg-[#E5FC61] dark:bg-[#151518] border border-black/5 dark:border-white/5 hover:border-primary/50 dark:hover:border-primary/50 rounded-2xl p-6 relative overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:hover:shadow-[0_10px_40px_-15px_rgba(18,113,91,0.5)] flex flex-col justify-between min-h-[220px]">
+            <div className="relative w-10 h-10 rounded-full flex items-center justify-center bg-primary text-white mb-6 group-hover:scale-110 transition-transform duration-300">
+              <s.icon size={20} strokeWidth={2} />
             </div>
-            <h3 className="relative font-display text-xl font-bold tracking-tight mb-3 text-white">{s.title}</h3>
-            <p className="relative text-muted-foreground text-sm leading-relaxed mb-6">{s.desc}</p>
-            <span className="relative inline-block text-[11px] font-bold text-primary uppercase tracking-wider bg-primary/5 border border-primary/20 px-3 py-1 rounded-full">
-              {s.tag}
-            </span>
+            <h3 className="relative font-display text-lg font-bold tracking-tight text-foreground">{s.title}</h3>
           </div>
         ))}
       </motion.div>
