@@ -18,7 +18,7 @@ const metrics = [
 ];
 
 const WhyUs = () => (
-  <section className="bg-elevated" aria-labelledby="whyus-heading">
+  <section className="relative" aria-labelledby="whyus-heading">
     <div className="max-w-[1200px] mx-auto px-[5vw] py-20">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
@@ -45,12 +45,15 @@ const WhyUs = () => (
           transition={{ delay: 0.1 }}
           className="grid grid-cols-2 gap-4"
         >
-          {metrics.map((m) => (
-            <div key={m.label} className="bg-surface border border-border rounded-xl p-6">
-              <div className="font-display text-3xl font-extrabold text-primary leading-none">{m.num}</div>
-              <div className="text-muted-foreground text-xs mt-2">{m.label}</div>
-            </div>
-          ))}
+          {metrics.map((m, i) => {
+            const c = ["hsl(var(--accent-blue))", "hsl(var(--accent-emerald))", "hsl(var(--accent-purple))", "hsl(var(--primary))"][i % 4];
+            return (
+              <div key={m.label} className="glass-card glass-card-hover rounded-xl p-6">
+                <div className="font-bagel text-4xl leading-none" style={{ color: c }}>{m.num}</div>
+                <div className="text-muted-foreground text-xs mt-3">{m.label}</div>
+              </div>
+            );
+          })}
         </motion.div>
       </div>
     </div>

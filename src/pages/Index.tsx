@@ -10,9 +10,11 @@ import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
+import AmbientOrbs from "@/components/AmbientOrbs";
 
 const Index = () => (
-  <div className="min-h-screen bg-background text-foreground">
+  <div className="min-h-screen bg-background text-foreground relative">
+    <AmbientOrbs />
     <SEOHead
       description="Moh's Automation is an AI automation agency in Abuja, Nigeria. We build custom AI chatbots, workflow automations, healthcare digital systems, and high-converting websites. Cut costs and grow faster."
       canonicalPath="/"

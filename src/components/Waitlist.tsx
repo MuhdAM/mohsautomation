@@ -134,7 +134,7 @@ const Waitlist = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-gradient-primary text-accent-foreground py-3.5 rounded-lg font-semibold glow-primary hover:-translate-y-0.5 glow-primary-hover transition-all disabled:opacity-60 disabled:cursor-not-allowed disabled:translate-y-0 flex items-center justify-center gap-2 mt-2"
+            className="w-full bg-gradient-tri text-white py-3.5 rounded-lg font-semibold pulse-glow hover:-translate-y-0.5 hover:scale-[1.01] transition-all disabled:opacity-60 disabled:cursor-not-allowed disabled:translate-y-0 flex items-center justify-center gap-2 mt-2"
           >
             {loading ? <><Loader2 size={18} className="animate-spin" /> Submitting…</> : "Reserve My Spot →"}
           </button>

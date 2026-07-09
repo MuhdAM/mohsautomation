@@ -22,7 +22,7 @@ const FAQ = () => (
     <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}>
       <Accordion type="single" collapsible className="space-y-3">
         {faqs.map((faq, i) => (
-          <AccordionItem key={i} value={`faq-${i}`} className="border border-border rounded-xl px-6 bg-foreground/[0.02]">
+          <AccordionItem key={i} value={`faq-${i}`} className="glass-card glass-card-hover rounded-xl px-6 border-transparent">
             <AccordionTrigger className="font-display font-bold text-sm hover:no-underline py-5">
               {faq.q}
             </AccordionTrigger>

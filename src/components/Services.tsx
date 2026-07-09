@@ -11,7 +11,7 @@ const services = [
 ];
 
 const Services = () => (
-  <section id="services" className="bg-elevated" aria-labelledby="services-heading">
+  <section id="services" className="relative" aria-labelledby="services-heading">
     <div className="max-w-[1200px] mx-auto px-[5vw] py-20">
       <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
         <span className="text-xs font-bold text-primary uppercase tracking-[0.1em]">What We Build</span>
@@ -28,16 +28,28 @@ const Services = () => (
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.1 }}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border rounded-2xl overflow-hidden"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
       >
-        {services.map((s) => (
-          <div key={s.title} className="bg-elevated p-8 hover:bg-surface transition-colors">
-            <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 ${s.color}`}>
+        {services.map((s, i) => (
+          <div key={s.title} className="glass-card glass-card-hover rounded-2xl p-8 relative overflow-hidden">
+            <div
+              aria-hidden="true"
+              className="absolute -top-16 -right-16 w-40 h-40 rounded-full opacity-25 blur-3xl"
+              style={{
+                background:
+                  i % 3 === 0
+                    ? "hsl(var(--accent-blue))"
+                    : i % 3 === 1
+                    ? "hsl(var(--accent-emerald))"
+                    : "hsl(var(--accent-purple))",
+              }}
+            />
+            <div className={`relative w-12 h-12 rounded-xl flex items-center justify-center mb-6 ${s.color}`}>
               <s.icon size={22} />
             </div>
-            <h3 className="font-display text-lg font-bold tracking-tight mb-3">{s.title}</h3>
-            <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
-            <span className="inline-block mt-5 text-xs font-semibold text-primary border border-primary/25 px-2.5 py-0.5 rounded">
+            <h3 className="relative font-display text-lg font-bold tracking-tight mb-3">{s.title}</h3>
+            <p className="relative text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
+            <span className="relative inline-block mt-5 text-xs font-semibold text-primary border border-primary/25 px-2.5 py-0.5 rounded">
               {s.tag}
             </span>
           </div>
