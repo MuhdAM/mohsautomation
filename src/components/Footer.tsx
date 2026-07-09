@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const Footer = () => (
   <footer className="bg-[#101013] text-white">
@@ -65,23 +66,23 @@ const Footer = () => (
 
         <div className="flex flex-col gap-4">
           <h4 className="font-bold text-sm tracking-wider uppercase text-white/50 mb-2">Product</h4>
-          <a href="#services" className="text-muted-foreground hover:text-white transition-colors text-sm font-medium">AI Automation</a>
-          <a href="#services" className="text-muted-foreground hover:text-white transition-colors text-sm font-medium">Systems</a>
-          <a href="#services" className="text-muted-foreground hover:text-white transition-colors text-sm font-medium">Packages</a>
+          <a href="/#services" className="text-muted-foreground hover:text-white transition-colors text-sm font-medium">AI Automation</a>
+          <a href="/#services" className="text-muted-foreground hover:text-white transition-colors text-sm font-medium">Systems</a>
+          <a href="/#services" className="text-muted-foreground hover:text-white transition-colors text-sm font-medium">Packages</a>
         </div>
 
         <div className="flex flex-col gap-4">
-          <h4 className="font-bold text-sm tracking-wider uppercase text-white/50 mb-2">Company</h4>
-          <a href="#" className="text-muted-foreground hover:text-white transition-colors text-sm font-medium">About us</a>
-          <a href="#contact" className="text-muted-foreground hover:text-white transition-colors text-sm font-medium">Contact</a>
+          <span className="font-bold text-white mb-2">Company</span>
+          <a href="/#why-us" className="text-muted-foreground hover:text-white transition-colors text-sm font-medium">About us</a>
+          <a href="/#contact" className="text-muted-foreground hover:text-white transition-colors text-sm font-medium">Contact</a>
           <a href="tel:09155733195" className="text-muted-foreground hover:text-white transition-colors text-sm font-medium">091 557 33195</a>
         </div>
 
         <div className="flex flex-col gap-4">
-          <h4 className="font-bold text-sm tracking-wider uppercase text-white/50 mb-2">Resources</h4>
-          <a href="#" className="text-muted-foreground hover:text-white transition-colors text-sm font-medium">Blog</a>
-          <a href="#faq" className="text-muted-foreground hover:text-white transition-colors text-sm font-medium">Help center</a>
-          <a href="#contact" className="text-muted-foreground hover:text-white transition-colors text-sm font-medium">Support</a>
+          <span className="font-bold text-white mb-2">Resources</span>
+          <Link to="/demos" className="text-muted-foreground hover:text-white transition-colors text-sm font-medium">Demos</Link>
+          <a href="/#faq" className="text-muted-foreground hover:text-white transition-colors text-sm font-medium">Help center</a>
+          <a href="/#contact" className="text-muted-foreground hover:text-white transition-colors text-sm font-medium">Support</a>
         </div>
       </div>
     </div>
