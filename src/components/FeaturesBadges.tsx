@@ -21,7 +21,7 @@ const features = [
 
 const FeaturesBadges = () => {
   return (
-    <section className="bg-[#FDFBF7] dark:bg-[#101013] py-24 border-t border-black/5 dark:border-white/5 transition-colors duration-300 overflow-hidden">
+    <section className="bg-[#FDFBF7] dark:bg-[#060E12] py-24 border-t border-black/5 dark:border-white/5 transition-colors duration-300 overflow-hidden">
       <div className="max-w-[1200px] mx-auto px-[5vw] text-center mb-12">
         <h2 className="font-display text-[clamp(1.5rem,3vw,2.5rem)] font-bold tracking-tight text-foreground">
           100+ Uses For Ai Systems in Your Business!

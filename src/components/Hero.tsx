@@ -9,7 +9,7 @@ const fadeUp = (delay = 0) => ({
 const Hero = () => (
   <section
     aria-labelledby="hero-heading"
-    className="relative min-h-[90vh] flex flex-col items-center justify-center text-center px-[5vw] pt-28 md:pt-36 pb-20 overflow-hidden bg-[#FDFBF7] dark:bg-[#101013] transition-colors duration-300"
+    className="dark relative min-h-[90vh] flex flex-col items-center justify-center text-center px-[5vw] pt-28 md:pt-36 pb-20 overflow-hidden bg-[#050C0F] transition-colors duration-300"
   >
     {/* Custom Wavy Background Image */}
     <div aria-hidden="true" className="absolute inset-0 pointer-events-none z-0">
@@ -18,7 +18,7 @@ const Hero = () => (
         style={{ backgroundImage: "url('/hero-bg.png')" }}
       />
       {/* Bottom fade to blend into the next section */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#FDFBF7] dark:to-[#101013]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#F4F1EA] dark:to-[#09151A]" />
     </div>
 
     {/* Floating Avatars and Decor */}

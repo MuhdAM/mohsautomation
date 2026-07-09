@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const Footer = () => (
-  <footer className="bg-[#101013] text-white">
+  <footer className="bg-[#060E12] text-white">
     {/* Upper CTA Section */}
     <div className="border-t border-white/5 pt-24 pb-16 px-[5vw]">
       <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -50,7 +50,7 @@ const Footer = () => (
     </div>
 
     {/* Lower Footer Grid */}
-    <div className="border-t border-white/5 py-16 px-[5vw] bg-[#151518]">
+    <div className="border-t border-white/5 py-16 px-[5vw] bg-black/20">
       <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
         <div className="flex flex-col gap-6 md:col-span-1">
           <div className="font-display font-bold text-xl text-white flex items-center gap-2">

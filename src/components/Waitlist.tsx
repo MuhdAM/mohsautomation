@@ -76,7 +76,7 @@ const Waitlist = () => {
 
   if (success) {
     return (
-      <section id="waitlist" className="bg-[#FDFBF7] dark:bg-[#101013] border-t border-black/5 dark:border-white/5 transition-colors duration-300">
+      <section id="waitlist" className="bg-[#F4F1EA] dark:bg-[#09151A] border-t border-black/5 dark:border-white/5 transition-colors duration-300">
         <div className="max-w-[680px] mx-auto px-[5vw] py-24 text-center">
           <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="bg-gray-50 dark:bg-[#151518] border border-black/10 dark:border-white/10 rounded-2xl p-12 shadow-lg dark:shadow-[0_0_40px_rgba(18,113,91,0.1)] transition-colors duration-300">
             <div className="text-5xl mb-6">✅</div>
@@ -89,7 +89,7 @@ const Waitlist = () => {
   }
 
   return (
-    <section id="waitlist" className="bg-[#FDFBF7] dark:bg-[#101013] border-t border-black/5 dark:border-white/5 relative overflow-hidden transition-colors duration-300" aria-labelledby="waitlist-heading">
+    <section id="waitlist" className="bg-[#F4F1EA] dark:bg-[#09151A] border-t border-black/5 dark:border-white/5 relative overflow-hidden transition-colors duration-300" aria-labelledby="waitlist-heading">
       <div aria-hidden="true" className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[300px] bg-primary/20 blur-[120px] rounded-[100%] pointer-events-none opacity-50" />
       
       <div className="max-w-[680px] mx-auto px-[5vw] py-24 text-center relative z-10">
