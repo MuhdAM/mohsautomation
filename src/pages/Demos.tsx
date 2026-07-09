@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Play, X } from "lucide-react";
+import { Play, X, Share2 } from "lucide-react";
+import { toast } from "sonner";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
@@ -30,6 +31,27 @@ function getThumbUrl(youtubeId: string) {
 
 const DemoCard = ({ demo }: { demo: Demo }) => {
   const [playing, setPlaying] = useState(false);
+
+  const handleShare = async () => {
+    // Share the current page URL
+    const shareUrl = window.location.href;
+    const shareTitle = `${demo.title} - Moh's Automation`;
+
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: shareTitle,
+          text: `Check out this AI demo: ${demo.title}`,
+          url: shareUrl,
+        });
+      } catch (err) {
+        console.log("Share cancelled or failed", err);
+      }
+    } else {
+      navigator.clipboard.writeText(shareUrl);
+      toast.success("Link copied to clipboard!");
+    }
+  };
 
   return (
     <motion.div
@@ -94,6 +116,13 @@ const DemoCard = ({ demo }: { demo: Demo }) => {
         <p className="text-muted-foreground text-sm mt-1.5 leading-relaxed">
           {demo.description}
         </p>
+        <button 
+          onClick={handleShare}
+          className="mt-4 inline-flex items-center gap-2 text-xs font-semibold text-primary hover:text-primary/80 transition-colors bg-primary/10 px-3 py-1.5 rounded-full"
+        >
+          <Share2 size={14} />
+          Share Demo
+        </button>
       </div>
     </motion.div>
   );
