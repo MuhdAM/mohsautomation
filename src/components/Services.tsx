@@ -13,10 +13,14 @@ const services = [
 const Services = () => (
   <section id="services" className="relative bg-[#F4F1EA] dark:bg-[#09151A] border-t border-black/5 dark:border-white/5 transition-colors duration-300" aria-labelledby="services-heading">
     <div className="max-w-[1200px] mx-auto px-[5vw] py-24">
-      <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center">
-        <h2 id="services-heading" className="font-display text-[clamp(2rem,3vw,3rem)] font-normal tracking-tight leading-[1.3] max-w-[900px] mx-auto text-foreground mb-16">
-          Boost efficiency and growth with smart automation - AI chatbots, CRM systems, and reporting dashboards that streamline operations, reduce costs, and enhance customer engagement
+      <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
+        <span className="text-xs font-bold text-primary uppercase tracking-[0.15em]">What We Do</span>
+        <h2 id="services-heading" className="font-display text-[clamp(2rem,4vw,3.5rem)] font-bold tracking-tight leading-[1.1] mt-4 text-foreground">
+          Smart Automation Solutions.
         </h2>
+        <p className="mt-6 text-muted-foreground text-[clamp(1rem,1.2vw,1.1rem)] max-w-[800px] mx-auto leading-relaxed">
+          Boost efficiency and growth with smart automation - AI chatbots, CRM systems, and reporting dashboards that streamline operations, reduce costs, and enhance customer engagement.
+        </p>
       </motion.div>
 
       <motion.div
