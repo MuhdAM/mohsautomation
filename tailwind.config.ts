@@ -74,6 +74,10 @@ export default {
           from: { transform: "translateX(0)" },
           to: { transform: "translateX(-50%)" },
         },
+        "marquee-right": {
+          from: { transform: "translateX(-50%)" },
+          to: { transform: "translateX(0)" },
+        },
         "pulse-dot": {
           "0%, 100%": { opacity: "1", transform: "scale(1)" },
           "50%": { opacity: "0.4", transform: "scale(0.7)" },
@@ -83,6 +87,7 @@ export default {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "marquee": "marquee 28s linear infinite",
+        "marquee-right": "marquee-right 28s linear infinite",
         "pulse-dot": "pulse-dot 2s ease-in-out infinite",
       },
     },

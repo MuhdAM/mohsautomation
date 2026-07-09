@@ -33,20 +33,45 @@ const FeaturesBadges = () => {
         <div className="absolute left-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-r from-white dark:from-[#101013] to-transparent pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-l from-white dark:from-[#101013] to-transparent pointer-events-none" />
 
-        <div className="flex flex-wrap justify-center gap-4 px-4 pb-8 max-w-[900px] mx-auto">
-          {features.map((feature, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.05 }}
-              className="flex items-center gap-3 px-6 py-3 rounded-full border border-black/10 dark:border-white/10 bg-white dark:bg-[#151518] hover:border-primary transition-colors cursor-default"
-            >
-              <feature.icon size={18} className="text-primary" />
-              <span className="font-medium text-sm text-foreground">{feature.label}</span>
-            </motion.div>
-          ))}
+        <div className="flex flex-col gap-6 py-8">
+          {/* Row 1 - Left */}
+          <div className="flex w-max animate-marquee hover:[animation-play-state:paused] gap-4 pr-4">
+            {[...features.slice(0, 5), ...features.slice(0, 5), ...features.slice(0, 5), ...features.slice(0, 5)].map((feature, i) => (
+              <div
+                key={i}
+                className="flex items-center gap-3 px-6 py-3 rounded-full border border-black/10 dark:border-white/10 bg-white dark:bg-[#151518] hover:border-primary transition-colors cursor-default whitespace-nowrap"
+              >
+                <feature.icon size={18} className="text-primary" />
+                <span className="font-medium text-sm text-foreground">{feature.label}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Row 2 - Right */}
+          <div className="flex w-max animate-marquee-right hover:[animation-play-state:paused] gap-4 pr-4">
+            {[...features.slice(5, 10), ...features.slice(5, 10), ...features.slice(5, 10), ...features.slice(5, 10)].map((feature, i) => (
+              <div
+                key={i}
+                className="flex items-center gap-3 px-6 py-3 rounded-full border border-black/10 dark:border-white/10 bg-white dark:bg-[#151518] hover:border-primary transition-colors cursor-default whitespace-nowrap"
+              >
+                <feature.icon size={18} className="text-primary" />
+                <span className="font-medium text-sm text-foreground">{feature.label}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Row 3 - Left */}
+          <div className="flex w-max animate-marquee hover:[animation-play-state:paused] gap-4 pr-4">
+            {[...features.slice(10, 15), ...features.slice(10, 15), ...features.slice(10, 15), ...features.slice(10, 15)].map((feature, i) => (
+              <div
+                key={i}
+                className="flex items-center gap-3 px-6 py-3 rounded-full border border-black/10 dark:border-white/10 bg-white dark:bg-[#151518] hover:border-primary transition-colors cursor-default whitespace-nowrap"
+              >
+                <feature.icon size={18} className="text-primary" />
+                <span className="font-medium text-sm text-foreground">{feature.label}</span>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="text-center mt-4">
