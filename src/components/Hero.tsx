@@ -9,31 +9,47 @@ const fadeUp = (delay = 0) => ({
 const Hero = () => (
   <section
     aria-labelledby="hero-heading"
-    className="relative min-h-[90vh] flex flex-col items-center justify-center text-center px-[5vw] pt-28 md:pt-36 pb-20 overflow-hidden bg-white dark:bg-[#101013] transition-colors duration-300"
+    className="relative min-h-[90vh] flex flex-col items-center justify-center text-center px-[5vw] pt-28 md:pt-36 pb-20 overflow-hidden bg-[#FDFBF7] dark:bg-[#101013] transition-colors duration-300"
   >
+    {/* Smooth Wavy Background Gradients */}
+    <div aria-hidden="true" className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+      <div className="absolute top-[-20%] left-[-10%] w-[70vw] h-[70vw] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/20 via-primary/5 to-transparent blur-[100px] rounded-full mix-blend-screen opacity-60 dark:opacity-40" />
+      <div className="absolute bottom-[-20%] right-[-10%] w-[60vw] h-[60vw] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/30 via-primary/10 to-transparent blur-[120px] rounded-full mix-blend-screen opacity-60 dark:opacity-40" />
+    </div>
+
     {/* Floating Avatars and Decor */}
-    <div aria-hidden="true" className="absolute inset-0 pointer-events-none z-0">
-      <motion.img 
-        initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.5, duration: 0.8 }}
-        src="/avatar_1.png" 
-        alt="" 
-        className="absolute bottom-1/4 left-[20%] w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-white dark:border-[#151518] shadow-xl float-gentle object-cover" 
-      />
-      <motion.img 
-        initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.7, duration: 0.8 }}
-        src="/avatar_2.png" 
-        alt="" 
-        className="absolute top-1/3 right-[15%] w-10 h-10 md:w-14 md:h-14 rounded-full border-2 border-white dark:border-[#151518] shadow-xl drift-left object-cover" 
-        style={{ animationDelay: "-2s" }}
-      />
+    <div aria-hidden="true" className="absolute inset-0 pointer-events-none z-10">
+      {/* Avatar 1 (Left) */}
+      <motion.div 
+        animate={{ y: [0, -15, 0] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute bottom-[25%] left-[15%] md:left-[25%]"
+      >
+        <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.5, duration: 0.8 }} className="relative">
+          <svg className="absolute -top-5 -right-3 w-5 h-5 text-blue-500 drop-shadow-md" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M5.5 2L19 12l-6.5 2 3.5 7.5-3 1.5L9.5 15 4 19V2z"/>
+          </svg>
+          <img src="/avatar_1.png" alt="" className="w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-white dark:border-[#151518] shadow-2xl object-cover" />
+        </motion.div>
+      </motion.div>
+
+      {/* Avatar 2 (Right) */}
+      <motion.div 
+        animate={{ y: [0, 15, 0] }}
+        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-[35%] right-[10%] md:right-[20%]"
+      >
+        <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.7, duration: 0.8 }} className="relative">
+          <svg className="absolute -top-5 -left-3 w-5 h-5 text-red-500 drop-shadow-md transform -scale-x-100 rotate-12" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M5.5 2L19 12l-6.5 2 3.5 7.5-3 1.5L9.5 15 4 19V2z"/>
+          </svg>
+          <img src="/avatar_2.png" alt="" className="w-10 h-10 md:w-14 md:h-14 rounded-full border-2 border-white dark:border-[#151518] shadow-2xl object-cover" />
+        </motion.div>
+      </motion.div>
       
       {/* Decorative dots */}
-      <span className="absolute top-1/4 left-[10%] w-2 h-2 rounded-full bg-primary/40 float-gentle shadow-[0_0_15px_rgba(18,113,91,0.5)]" />
-      <span className="absolute bottom-1/3 right-[20%] w-3 h-3 rounded-full bg-primary/30 drift-right shadow-[0_0_20px_rgba(18,113,91,0.4)]" />
+      <span className="absolute top-1/4 left-[10%] w-2 h-2 rounded-full bg-primary/40 shadow-[0_0_15px_rgba(18,113,91,0.5)]" />
+      <span className="absolute bottom-1/3 right-[15%] w-3 h-3 rounded-full bg-primary/30 shadow-[0_0_20px_rgba(18,113,91,0.4)]" />
     </div>
 
     <div className="relative z-10 flex flex-col items-center">

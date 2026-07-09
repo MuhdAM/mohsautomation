@@ -18,7 +18,7 @@ const metrics = [
 ];
 
 const WhyUs = () => (
-  <section id="why-us" className="relative bg-white dark:bg-[#101013] border-t border-black/5 dark:border-white/5 transition-colors duration-300" aria-labelledby="whyus-heading">
+  <section id="why-us" className="relative bg-[#FDFBF7] dark:bg-[#101013] border-t border-black/5 dark:border-white/5 transition-colors duration-300" aria-labelledby="whyus-heading">
     <div className="max-w-[1200px] mx-auto px-[5vw] py-24">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>

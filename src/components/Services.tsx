@@ -11,7 +11,7 @@ const services = [
 ];
 
 const Services = () => (
-  <section id="services" className="relative bg-white dark:bg-[#101013] border-t border-black/5 dark:border-white/5 transition-colors duration-300" aria-labelledby="services-heading">
+  <section id="services" className="relative bg-[#F4F1EA] dark:bg-[#16201B] border-t border-black/5 dark:border-white/5 transition-colors duration-300" aria-labelledby="services-heading">
     <div className="max-w-[1200px] mx-auto px-[5vw] py-24">
       <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center">
         <h2 id="services-heading" className="font-display text-[clamp(2rem,3vw,3rem)] font-normal tracking-tight leading-[1.3] max-w-[900px] mx-auto text-foreground mb-16">

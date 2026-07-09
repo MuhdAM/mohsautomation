@@ -5,7 +5,7 @@ const items = [
 ];
 
 const Marquee = () => (
-  <div className="overflow-hidden border-y border-black/5 dark:border-white/5 py-4 bg-gray-50 dark:bg-[#151518] transition-colors duration-300" aria-hidden="true">
+  <div className="overflow-hidden border-y border-black/5 dark:border-white/5 py-4 bg-[#F4F1EA] dark:bg-[#16201B] transition-colors duration-300" aria-hidden="true">
     <div className="flex gap-12 animate-marquee motion-reduce:animate-none w-max">
       {[...items, ...items].map((item, i) => (
         <span key={i} className="flex items-center gap-3 whitespace-nowrap text-xs font-semibold text-muted-foreground uppercase tracking-[0.15em]">

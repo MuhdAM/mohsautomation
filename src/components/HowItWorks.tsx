@@ -8,7 +8,7 @@ const steps = [
 ];
 
 const HowItWorks = () => (
-  <section id="how-it-works" className="relative bg-white dark:bg-[#101013] border-t border-black/5 dark:border-white/5 py-24 transition-colors duration-300">
+  <section id="how-it-works" className="relative bg-[#F4F1EA] dark:bg-[#16201B] border-t border-black/5 dark:border-white/5 py-24 transition-colors duration-300">
     <div className="max-w-[1200px] mx-auto px-[5vw]">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* Left side: Image */}

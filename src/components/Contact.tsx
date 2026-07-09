@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Phone, Mail, MapPin } from "lucide-react";
 
 const Contact = () => (
-  <section id="contact" className="relative bg-white dark:bg-[#101013] border-t border-black/5 dark:border-white/5 transition-colors duration-300" aria-labelledby="contact-heading">
+  <section id="contact" className="relative bg-[#F4F1EA] dark:bg-[#16201B] border-t border-black/5 dark:border-white/5 transition-colors duration-300" aria-labelledby="contact-heading">
     <div className="max-w-[1200px] mx-auto px-[5vw] py-24">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
         <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
