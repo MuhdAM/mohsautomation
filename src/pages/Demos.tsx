@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Play, X, Share2 } from "lucide-react";
 import { toast } from "sonner";
@@ -173,7 +174,28 @@ const DemoCard = ({ demo }: { demo: Demo }) => {
 };
 
 const Demos = () => {
-  const [activeCategory, setActiveCategory] = useState("All Demos");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const initialCategory = searchParams.get("category");
+  const [activeCategory, setActiveCategory] = useState(
+    initialCategory && CATEGORIES.includes(initialCategory) ? initialCategory : "All Demos"
+  );
+
+  useEffect(() => {
+    const param = searchParams.get("category");
+    if (param && CATEGORIES.includes(param) && param !== activeCategory) {
+      setActiveCategory(param);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams]);
+
+  const handleCategoryChange = (category: string) => {
+    setActiveCategory(category);
+    if (category === "All Demos") {
+      setSearchParams({}, { replace: true });
+    } else {
+      setSearchParams({ category }, { replace: true });
+    }
+  };
 
   const filteredDemos = demos.filter(
     (demo) => activeCategory === "All Demos" || demo.category === activeCategory
@@ -219,7 +241,7 @@ const Demos = () => {
           {CATEGORIES.map((category) => (
             <button
               key={category}
-              onClick={() => setActiveCategory(category)}
+              onClick={() => handleCategoryChange(category)}
               className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
                 activeCategory === category
                   ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20"
