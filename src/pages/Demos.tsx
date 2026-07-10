@@ -174,7 +174,28 @@ const DemoCard = ({ demo }: { demo: Demo }) => {
 };
 
 const Demos = () => {
-  const [activeCategory, setActiveCategory] = useState("All Demos");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const initialCategory = searchParams.get("category");
+  const [activeCategory, setActiveCategory] = useState(
+    initialCategory && CATEGORIES.includes(initialCategory) ? initialCategory : "All Demos"
+  );
+
+  useEffect(() => {
+    const param = searchParams.get("category");
+    if (param && CATEGORIES.includes(param) && param !== activeCategory) {
+      setActiveCategory(param);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams]);
+
+  const handleCategoryChange = (category: string) => {
+    setActiveCategory(category);
+    if (category === "All Demos") {
+      setSearchParams({}, { replace: true });
+    } else {
+      setSearchParams({ category }, { replace: true });
+    }
+  };
 
   const filteredDemos = demos.filter(
     (demo) => activeCategory === "All Demos" || demo.category === activeCategory
