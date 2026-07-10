@@ -10,7 +10,8 @@ interface Demo {
   id: string;
   title: string;
   description: string;
-  youtubeId: string;
+  youtubeId?: string;
+  instagramId?: string;
   orientation: "portrait" | "landscape";
 }
 
@@ -68,44 +69,55 @@ const DemoCard = ({ demo }: { demo: Demo }) => {
             : "aspect-video w-full"
         }`}
       >
-        {playing ? (
-          <>
-            <iframe
-              className="absolute inset-0 w-full h-full"
-              src={`https://www.youtube.com/embed/${demo.youtubeId}?autoplay=1&rel=0&modestbranding=1`}
-              title={demo.title}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
+        {demo.instagramId ? (
+          <iframe
+            className="absolute inset-0 w-full h-full"
+            src={`https://www.instagram.com/p/${demo.instagramId}/embed/`}
+            frameBorder="0"
+            scrolling="no"
+            allowTransparency={true}
+            allowFullScreen
+          />
+        ) : demo.youtubeId ? (
+          playing ? (
+            <>
+              <iframe
+                className="absolute inset-0 w-full h-full"
+                src={`https://www.youtube.com/embed/${demo.youtubeId}?autoplay=1&rel=0&modestbranding=1`}
+                title={demo.title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+              <button
+                onClick={() => setPlaying(false)}
+                className="absolute top-3 right-3 z-10 bg-black/60 backdrop-blur-sm text-white p-1.5 rounded-full hover:bg-black/80 transition-colors"
+                aria-label="Close video"
+              >
+                <X size={16} />
+              </button>
+            </>
+          ) : (
             <button
-              onClick={() => setPlaying(false)}
-              className="absolute top-3 right-3 z-10 bg-black/60 backdrop-blur-sm text-white p-1.5 rounded-full hover:bg-black/80 transition-colors"
-              aria-label="Close video"
+              onClick={() => setPlaying(true)}
+              className="absolute inset-0 w-full h-full cursor-pointer"
+              aria-label={`Play ${demo.title} demo`}
             >
-              <X size={16} />
-            </button>
-          </>
-        ) : (
-          <button
-            onClick={() => setPlaying(true)}
-            className="absolute inset-0 w-full h-full cursor-pointer"
-            aria-label={`Play ${demo.title} demo`}
-          >
-            <img
-              src={getThumbUrl(demo.youtubeId)}
-              alt={`${demo.title} thumbnail`}
-              className="w-full h-full object-cover"
-            />
-            {/* Gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-            {/* Play button */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-16 h-16 rounded-full bg-primary/90 backdrop-blur-sm flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
-                <Play size={28} className="text-primary-foreground ml-1" fill="currentColor" />
+              <img
+                src={getThumbUrl(demo.youtubeId!)}
+                alt={`${demo.title} thumbnail`}
+                className="w-full h-full object-cover"
+              />
+              {/* Gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              {/* Play button */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-16 h-16 rounded-full bg-primary/90 backdrop-blur-sm flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+                  <Play size={28} className="text-primary-foreground ml-1" fill="currentColor" />
+                </div>
               </div>
-            </div>
-          </button>
-        )}
+            </button>
+          )
+        ) : null}
       </div>
 
       {/* Info */}
