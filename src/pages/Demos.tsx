@@ -10,10 +10,17 @@ interface Demo {
   id: string;
   title: string;
   description: string;
+  category: string;
   youtubeId?: string;
   instagramId?: string;
   orientation: "portrait" | "landscape";
 }
+
+const CATEGORIES = [
+  "All Demos",
+  "AI Voice Receptionists",
+  "Zero-Commission Ordering Platforms"
+];
 
 const demos: Demo[] = [
   {
@@ -21,9 +28,34 @@ const demos: Demo[] = [
     title: "APEX AI Receptionist",
     description:
       "Watch our AI receptionist handle real customer queries with perfect accuracy, quoting prices and booking appointments in real time.",
+    category: "AI Voice Receptionists",
     youtubeId: "_NgfmJ3OWfw",
     orientation: "portrait",
   },
+  {
+    id: "lightning-fast-digital-menus",
+    title: "Lightning-Fast Digital Menus",
+    description: "Give your customers a frictionless tap-to-order experience. The system automatically calculates the cart and sends the complete order straight to your WhatsApp.",
+    category: "Zero-Commission Ordering Platforms",
+    instagramId: "DXmJifGCKi2",
+    orientation: "portrait",
+  },
+  {
+    id: "zero-commission-delivery-hubs",
+    title: "Zero-Commission Delivery Hubs",
+    description: "Stop giving away 20% of your profits to delivery apps. Own your customer data with a custom ordering page that routes delivery requests directly to your kitchen.",
+    category: "Zero-Commission Ordering Platforms",
+    instagramId: "DXaytNWiKKC",
+    orientation: "portrait",
+  },
+  {
+    id: "premium-dine-in-ordering",
+    title: "Premium Dine-In Ordering",
+    description: "An elegant bridge between a casual cafe experience and digital convenience. Let dine-in or takeout guests order via WhatsApp without downloading any apps.",
+    category: "Zero-Commission Ordering Platforms",
+    instagramId: "DXtsduECATY",
+    orientation: "portrait",
+  }
 ];
 
 function getThumbUrl(youtubeId: string) {
@@ -140,7 +172,14 @@ const DemoCard = ({ demo }: { demo: Demo }) => {
   );
 };
 
-const Demos = () => (
+const Demos = () => {
+  const [activeCategory, setActiveCategory] = useState("All Demos");
+
+  const filteredDemos = demos.filter(
+    (demo) => activeCategory === "All Demos" || demo.category === activeCategory
+  );
+
+  return (
   <div className="min-h-screen bg-background text-foreground flex flex-col">
     <SEOHead
       title="Demos"
@@ -155,7 +194,7 @@ const Demos = () => (
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-16"
+          className="text-center mb-10"
         >
           <span className="text-xs font-bold text-primary uppercase tracking-[0.1em]">
             Live Demos
@@ -170,12 +209,34 @@ const Demos = () => (
           </p>
         </motion.div>
 
+        {/* Category Filter */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="flex flex-wrap justify-center gap-3 mb-12"
+        >
+          {CATEGORIES.map((category) => (
+            <button
+              key={category}
+              onClick={() => setActiveCategory(category)}
+              className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
+                activeCategory === category
+                  ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20"
+                  : "bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 text-foreground"
+              }`}
+            >
+              {category}
+            </button>
+          ))}
+        </motion.div>
+
         {/* Demo Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-          {demos.map((demo) => (
+        <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          {filteredDemos.map((demo) => (
             <DemoCard key={demo.id} demo={demo} />
           ))}
-        </div>
+        </motion.div>
 
         {/* CTA */}
         <motion.div
@@ -202,6 +263,7 @@ const Demos = () => (
 
     <Footer />
   </div>
-);
+  );
+};
 
 export default Demos;
