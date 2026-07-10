@@ -241,7 +241,7 @@ const Demos = () => {
           {CATEGORIES.map((category) => (
             <button
               key={category}
-              onClick={() => setActiveCategory(category)}
+              onClick={() => handleCategoryChange(category)}
               className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
                 activeCategory === category
                   ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20"
