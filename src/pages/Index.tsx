@@ -1,11 +1,14 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
+import TrustedBy from "@/components/TrustedBy";
 import Services from "@/components/Services";
 import HowItWorks from "@/components/HowItWorks";
+import Results from "@/components/Results";
 import WhyUs from "@/components/WhyUs";
 import Industries from "@/components/Industries";
 import FeaturesBadges from "@/components/FeaturesBadges";
+import Testimonials from "@/components/Testimonials";
 import Waitlist from "@/components/Waitlist";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
@@ -32,10 +35,13 @@ const Index = () => (
     <main id="main-content">
       <Hero />
       <Marquee />
+      <TrustedBy />
       <Services />
       <HowItWorks />
+      <Results />
       <WhyUs />
       <Industries />
+      <Testimonials />
       <FeaturesBadges />
       <FAQ />
       <Waitlist />
