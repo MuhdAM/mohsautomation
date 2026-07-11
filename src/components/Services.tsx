@@ -30,12 +30,23 @@ const Services = () => (
         transition={{ duration: 0.6, delay: 0.1 }}
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
       >
-        {services.map((s, i) => (
-          <div key={s.title} className="group bg-[#E5FC61] dark:bg-[#151518] border border-black/5 dark:border-white/5 hover:border-primary/50 dark:hover:border-primary/50 rounded-2xl p-6 relative overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:hover:shadow-[0_10px_40px_-15px_rgba(18,113,91,0.5)] flex flex-col justify-between min-h-[220px]">
-            <div className="relative w-10 h-10 rounded-full flex items-center justify-center bg-primary text-white mb-6 group-hover:scale-110 transition-transform duration-300">
+        {services.map((s) => (
+          <div
+            key={s.title}
+            className="group glass-card glass-card-hover rounded-2xl p-7 relative overflow-hidden flex flex-col min-h-[260px]"
+          >
+            <div className="relative w-11 h-11 rounded-xl flex items-center justify-center bg-primary/15 text-primary mb-6 group-hover:scale-110 group-hover:bg-primary/25 transition-all duration-300">
               <s.icon size={20} strokeWidth={2} />
             </div>
-            <h3 className="relative font-display text-lg font-bold tracking-tight text-foreground">{s.title}</h3>
+            <h3 className="relative font-display text-lg font-bold tracking-tight text-foreground mb-3">
+              {s.title}
+            </h3>
+            <p className="relative text-muted-foreground text-[13px] leading-relaxed flex-grow">
+              {s.desc}
+            </p>
+            <span className="relative mt-5 inline-flex self-start text-[10px] font-bold uppercase tracking-[0.15em] text-primary/80 border border-primary/20 rounded-full px-3 py-1">
+              {s.tag}
+            </span>
           </div>
         ))}
       </motion.div>
