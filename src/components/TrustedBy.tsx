@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
+import { useQuery } from "@tanstack/react-query";
+import { supabase } from "@/integrations/supabase/client";
 
-const logos = [
+const defaultLogos = [
   "MERIDIAN HEALTH",
   "NORTHWIND LOGISTICS",
   "ATLAS RETAIL GROUP",
@@ -9,7 +11,19 @@ const logos = [
   "HELIX CONSULTING",
 ];
 
-const TrustedBy = () => (
+const TrustedBy = () => {
+  const { data: dbLogos } = useQuery({
+    queryKey: ["trusted_by"],
+    queryFn: async () => {
+      const { data, error } = await supabase.from("trusted_by").select("name").order("created_at", { ascending: true });
+      if (error) throw error;
+      return data.map((d) => d.name);
+    },
+  });
+
+  const logos = dbLogos && dbLogos.length > 0 ? dbLogos : defaultLogos;
+
+  return (
   <section
     aria-label="Trusted by leading teams"
     className="relative bg-[#FDFBF7] dark:bg-[#060E12] border-t border-black/5 dark:border-white/5 py-16 transition-colors duration-300"
@@ -46,6 +60,7 @@ const TrustedBy = () => (
       </p>
     </div>
   </section>
-);
+  );
+};
 
 export default TrustedBy;

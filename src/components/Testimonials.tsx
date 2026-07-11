@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
+import { supabase } from "@/integrations/supabase/client";
 
-const testimonials = [
+const defaultTestimonials = [
   {
     quote:
       "Moh's team rebuilt our patient intake in six weeks. What used to take our front desk two hours a day now runs itself — and the reporting is finally something I can trust.",
@@ -25,7 +27,19 @@ const testimonials = [
   },
 ];
 
-const Testimonials = () => (
+const Testimonials = () => {
+  const { data: dbTestimonials } = useQuery({
+    queryKey: ["testimonials"],
+    queryFn: async () => {
+      const { data, error } = await supabase.from("testimonials").select("*").order("created_at", { ascending: true });
+      if (error) throw error;
+      return data;
+    },
+  });
+
+  const testimonials = dbTestimonials && dbTestimonials.length > 0 ? dbTestimonials : defaultTestimonials;
+
+  return (
   <section
     aria-labelledby="testimonials-heading"
     className="relative bg-[#FDFBF7] dark:bg-[#060E12] border-t border-black/5 dark:border-white/5 py-24 transition-colors duration-300"
@@ -77,6 +91,7 @@ const Testimonials = () => (
       </p>
     </div>
   </section>
-);
+  );
+};
 
 export default Testimonials;

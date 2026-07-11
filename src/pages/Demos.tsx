@@ -7,6 +7,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 
+import { useQuery } from "@tanstack/react-query";
+import { supabase } from "@/integrations/supabase/client";
+
 interface Demo {
   id: string;
   title: string;
@@ -23,7 +26,7 @@ const CATEGORIES = [
   "Zero-Commission Ordering Platforms"
 ];
 
-const demos: Demo[] = [
+const defaultDemos: Demo[] = [
   {
     id: "apex-ai-receptionist",
     title: "APEX AI Receptionist",
@@ -197,7 +200,22 @@ const Demos = () => {
     }
   };
 
-  const filteredDemos = demos.filter(
+  const { data: dbDemos } = useQuery({
+    queryKey: ["demos"],
+    queryFn: async () => {
+      const { data, error } = await supabase.from("demos").select("*").order("created_at", { ascending: true });
+      if (error) throw error;
+      return data.map((d: any) => ({
+        ...d,
+        youtubeId: d.youtube_id,
+        instagramId: d.instagram_id
+      })) as Demo[];
+    },
+  });
+
+  const activeDemos = dbDemos && dbDemos.length > 0 ? dbDemos : defaultDemos;
+
+  const filteredDemos = activeDemos.filter(
     (demo) => activeCategory === "All Demos" || demo.category === activeCategory
   );
 

@@ -1,7 +1,20 @@
 import { motion } from "framer-motion";
-import { TrendingUp, Clock, Users } from "lucide-react";
+import { TrendingUp, Clock, Users, CheckCircle, Zap, Shield, BarChart, FileText } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
+import { supabase } from "@/integrations/supabase/client";
 
-const cases = [
+const iconMap: Record<string, any> = {
+  TrendingUp,
+  Clock,
+  Users,
+  CheckCircle,
+  Zap,
+  Shield,
+  BarChart,
+  FileText
+};
+
+const defaultCases = [
   {
     icon: Clock,
     sector: "Healthcare",
@@ -34,7 +47,28 @@ const cases = [
   },
 ];
 
-const Results = () => (
+const Results = () => {
+  const { data: dbCases } = useQuery({
+    queryKey: ["results"],
+    queryFn: async () => {
+      const { data, error } = await supabase.from("results").select("*").order("created_at", { ascending: true });
+      if (error) throw error;
+      return data.map((d) => ({
+        icon: iconMap[d.icon] || CheckCircle,
+        sector: d.sector,
+        title: d.title,
+        body: d.body,
+        metrics: [
+          { value: d.metric_1_value, label: d.metric_1_label },
+          { value: d.metric_2_value, label: d.metric_2_label }
+        ]
+      }));
+    },
+  });
+
+  const cases = dbCases && dbCases.length > 0 ? dbCases : defaultCases;
+
+  return (
   <section
     id="results"
     aria-labelledby="results-heading"
@@ -106,6 +140,7 @@ const Results = () => (
       </p>
     </div>
   </section>
-);
+  );
+};
 
 export default Results;
