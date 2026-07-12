@@ -105,7 +105,7 @@ const Hero = () => (
           <svg className="absolute -top-5 -left-3 w-5 h-5 text-red-500 drop-shadow-md transform -scale-x-100 rotate-12" viewBox="0 0 24 24" fill="currentColor">
             <path d="M5.5 2L19 12l-6.5 2 3.5 7.5-3 1.5L9.5 15 4 19V2z"/>
           </svg>
-          <img src="/avatar_2.png" alt="" className="w-12 h-12 md:w-18 md:h-18 rounded-full border-2 border-white dark:border-[#151518] shadow-2xl object-cover" />
+          <img src="/avatar_2.png" alt="" className="w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-white dark:border-[#151518] shadow-2xl object-cover" />
         </motion.div>
       </motion.div>
       
