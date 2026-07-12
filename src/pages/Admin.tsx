@@ -102,7 +102,7 @@ const TrustedByAdmin = () => {
     const name = window.prompt("Enter company name:");
     if (!name) return;
     
-    toast.promise(supabase.from("trusted_by").insert({ name }).then(r => { if (r.error) throw r.error; }), {
+    toast.promise(supabase.from("trusted_by").insert({ name }).then(r => { if (r.error) throw r.error; return r; }) as unknown as Promise<void>, {
       loading: "Adding...",
       success: () => { queryClient.invalidateQueries({ queryKey: ["trusted_by"] }); return "Added successfully"; },
       error: "Failed to add",
@@ -111,7 +111,7 @@ const TrustedByAdmin = () => {
 
   const handleDelete = async (id: string) => {
     if (!window.confirm("Are you sure you want to delete this logo?")) return;
-    toast.promise(supabase.from("trusted_by").delete().eq("id", id).then(r => { if (r.error) throw r.error; }), {
+    toast.promise(supabase.from("trusted_by").delete().eq("id", id).then(r => { if (r.error) throw r.error; return r; }) as unknown as Promise<void>, {
       loading: "Deleting...",
       success: () => { queryClient.invalidateQueries({ queryKey: ["trusted_by"] }); return "Deleted successfully"; },
       error: "Failed to delete",
@@ -167,7 +167,7 @@ const TestimonialsAdmin = () => {
     const quote = window.prompt("Quote:");
     if (!quote) return;
     
-    toast.promise(supabase.from("testimonials").insert({ name, role, org, quote }).then(r => { if (r.error) throw r.error; }), {
+    toast.promise(supabase.from("testimonials").insert({ name, role, org, quote }).then(r => { if (r.error) throw r.error; return r; }) as unknown as Promise<void>, {
       loading: "Adding...",
       success: () => { queryClient.invalidateQueries({ queryKey: ["testimonials"] }); return "Added successfully"; },
       error: "Failed to add",
@@ -176,7 +176,7 @@ const TestimonialsAdmin = () => {
 
   const handleDelete = async (id: string) => {
     if (!window.confirm("Are you sure?")) return;
-    toast.promise(supabase.from("testimonials").delete().eq("id", id).then(r => { if (r.error) throw r.error; }), {
+    toast.promise(supabase.from("testimonials").delete().eq("id", id).then(r => { if (r.error) throw r.error; return r; }) as unknown as Promise<void>, {
       loading: "Deleting...",
       success: () => { queryClient.invalidateQueries({ queryKey: ["testimonials"] }); return "Deleted successfully"; },
       error: "Failed to delete",
@@ -245,7 +245,7 @@ const ResultsAdmin = () => {
     
     toast.promise(supabase.from("results").insert({ 
       title, sector, icon, body, metric_1_value: m1val, metric_1_label: m1lab, metric_2_value: m2val, metric_2_label: m2lab 
-    }).then(r => { if (r.error) throw r.error; }), {
+    }).then(r => { if (r.error) throw r.error; return r; }) as unknown as Promise<void>, {
       loading: "Adding...",
       success: () => { queryClient.invalidateQueries({ queryKey: ["results"] }); return "Added successfully"; },
       error: "Failed to add",
@@ -254,7 +254,7 @@ const ResultsAdmin = () => {
 
   const handleDelete = async (id: string) => {
     if (!window.confirm("Are you sure?")) return;
-    toast.promise(supabase.from("results").delete().eq("id", id).then(r => { if (r.error) throw r.error; }), {
+    toast.promise(supabase.from("results").delete().eq("id", id).then(r => { if (r.error) throw r.error; return r; }) as unknown as Promise<void>, {
       loading: "Deleting...",
       success: () => { queryClient.invalidateQueries({ queryKey: ["results"] }); return "Deleted successfully"; },
       error: "Failed to delete",
@@ -331,7 +331,7 @@ const DemosAdmin = () => {
     
     toast.promise(supabase.from("demos").insert({ 
       id, title, description, category, youtube_id, instagram_id, orientation
-    }).then(r => { if (r.error) throw r.error; }), {
+    }).then(r => { if (r.error) throw r.error; return r; }) as unknown as Promise<void>, {
       loading: "Adding...",
       success: () => { queryClient.invalidateQueries({ queryKey: ["demos"] }); return "Added successfully"; },
       error: "Failed to add",
@@ -340,7 +340,7 @@ const DemosAdmin = () => {
 
   const handleDelete = async (id: string) => {
     if (!window.confirm("Are you sure?")) return;
-    toast.promise(supabase.from("demos").delete().eq("id", id).then(r => { if (r.error) throw r.error; }), {
+    toast.promise(supabase.from("demos").delete().eq("id", id).then(r => { if (r.error) throw r.error; return r; }) as unknown as Promise<void>, {
       loading: "Deleting...",
       success: () => { queryClient.invalidateQueries({ queryKey: ["demos"] }); return "Deleted successfully"; },
       error: "Failed to delete",
