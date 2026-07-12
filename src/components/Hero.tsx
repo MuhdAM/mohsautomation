@@ -16,12 +16,12 @@ const TypingText = () => {
         i++;
         timeout = setTimeout(tick, 90);
       } else {
-        // Pause 5s then restart
+        // Pause 3s then restart
         timeout = setTimeout(() => {
           i = 0;
           setDisplayed("");
           tick();
-        }, 5000);
+        }, 3000);
       }
     };
 
