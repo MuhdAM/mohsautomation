@@ -1,4 +1,42 @@
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+
+const TYPING_TEXT = "Plan. Build. Deploy.";
+
+const TypingText = () => {
+  const [displayed, setDisplayed] = useState("");
+
+  useEffect(() => {
+    let timeout: ReturnType<typeof setTimeout>;
+    let i = 0;
+
+    const tick = () => {
+      if (i <= TYPING_TEXT.length) {
+        setDisplayed(TYPING_TEXT.slice(0, i));
+        i++;
+        timeout = setTimeout(tick, 90);
+      } else {
+        // Pause 5s then restart
+        timeout = setTimeout(() => {
+          i = 0;
+          setDisplayed("");
+          tick();
+        }, 5000);
+      }
+    };
+
+    tick();
+    return () => clearTimeout(timeout);
+  }, []);
+
+  return (
+    <>
+      {displayed}
+      <span className="inline-block w-[0.08em] h-[0.9em] align-middle ml-1 bg-current animate-pulse" />
+    </>
+  );
+};
+
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 20 },
@@ -81,8 +119,8 @@ const Hero = () => (
         className="font-display text-[clamp(2.5rem,6vw,5.5rem)] font-bold leading-[1.15] tracking-tight max-w-[1000px] text-foreground"
       >
         Done-for-you AI <br className="hidden md:block" />
-        <span className="inline-block bg-[#99F6E4] text-[#042F2E] px-4 py-1 mt-2 rounded-xl transform -rotate-1 shadow-lg dark:shadow-[0_0_20px_rgba(153,246,228,0.2)]">
-          Plan. Build. Deploy.
+        <span className="inline-block bg-[#99F6E4] text-[#042F2E] px-4 py-1 mt-2 rounded-xl transform -rotate-1 shadow-lg dark:shadow-[0_0_20px_rgba(153,246,228,0.2)] min-w-[10ch]">
+          <TypingText />
         </span><br />
         In just 90 Days
       </motion.h1>
