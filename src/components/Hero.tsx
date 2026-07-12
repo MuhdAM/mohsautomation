@@ -24,9 +24,14 @@ const Hero = () => (
     {/* Floating Avatars and Decor */}
     <div aria-hidden="true" className="absolute inset-0 pointer-events-none z-10">
       {/* Avatar 1 (Left) */}
-      <motion.div 
-        animate={{ y: [0, -15, 0] }}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+      <motion.div
+        animate={{
+          y: [0, -35, 12, -22, 0],
+          x: [0, 18, -10, 22, 0],
+          rotate: [0, 6, -4, 8, 0],
+          scale: [1, 1.08, 0.98, 1.05, 1],
+        }}
+        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
         className="absolute bottom-[25%] left-[15%] md:left-[25%]"
       >
         <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.5, duration: 0.8 }} className="relative">
@@ -38,9 +43,14 @@ const Hero = () => (
       </motion.div>
 
       {/* Avatar 2 (Right) */}
-      <motion.div 
-        animate={{ y: [0, 15, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+      <motion.div
+        animate={{
+          y: [0, 28, -18, 22, 0],
+          x: [0, -16, 14, -20, 0],
+          rotate: [0, -7, 5, -5, 0],
+          scale: [1, 1.06, 1.04, 0.97, 1],
+        }}
+        transition={{ duration: 8.5, repeat: Infinity, ease: "easeInOut" }}
         className="absolute top-[35%] right-[10%] md:right-[20%]"
       >
         <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.7, duration: 0.8 }} className="relative">
