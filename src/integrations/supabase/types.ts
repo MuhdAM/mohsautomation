@@ -14,6 +14,123 @@ export type Database = {
   }
   public: {
     Tables: {
+      demos: {
+        Row: {
+          category: string
+          created_at: string
+          description: string | null
+          id: string
+          instagram_id: string | null
+          orientation: string
+          title: string
+          youtube_id: string | null
+        }
+        Insert: {
+          category?: string
+          created_at?: string
+          description?: string | null
+          id: string
+          instagram_id?: string | null
+          orientation?: string
+          title: string
+          youtube_id?: string | null
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          instagram_id?: string | null
+          orientation?: string
+          title?: string
+          youtube_id?: string | null
+        }
+        Relationships: []
+      }
+      results: {
+        Row: {
+          body: string | null
+          created_at: string
+          icon: string | null
+          id: string
+          metric_1_label: string | null
+          metric_1_value: string | null
+          metric_2_label: string | null
+          metric_2_value: string | null
+          sector: string | null
+          title: string
+        }
+        Insert: {
+          body?: string | null
+          created_at?: string
+          icon?: string | null
+          id?: string
+          metric_1_label?: string | null
+          metric_1_value?: string | null
+          metric_2_label?: string | null
+          metric_2_value?: string | null
+          sector?: string | null
+          title: string
+        }
+        Update: {
+          body?: string | null
+          created_at?: string
+          icon?: string | null
+          id?: string
+          metric_1_label?: string | null
+          metric_1_value?: string | null
+          metric_2_label?: string | null
+          metric_2_value?: string | null
+          sector?: string | null
+          title?: string
+        }
+        Relationships: []
+      }
+      testimonials: {
+        Row: {
+          created_at: string
+          id: string
+          name: string
+          org: string | null
+          quote: string
+          role: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          name: string
+          org?: string | null
+          quote: string
+          role?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          name?: string
+          org?: string | null
+          quote?: string
+          role?: string | null
+        }
+        Relationships: []
+      }
+      trusted_by: {
+        Row: {
+          created_at: string
+          id: string
+          name: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          name: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          name?: string
+        }
+        Relationships: []
+      }
       waitlist: {
         Row: {
           created_at: string
