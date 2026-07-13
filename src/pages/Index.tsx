@@ -35,8 +35,8 @@ const Index = () => (
     <main id="main-content">
       <Hero />
       <Marquee />
-      <TrustedBy />
       <Services />
+      <TrustedBy />
       <HowItWorks />
       <Results />
       <WhyUs />
