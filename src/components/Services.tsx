@@ -4,7 +4,7 @@ import {
   Phone,
   MessageSquare,
   Calendar,
-  Facebook,
+  Share2,
   Sparkles,
   Zap,
   ArrowRight,
