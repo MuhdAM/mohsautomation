@@ -17,10 +17,10 @@ import {
 } from "lucide-react";
 
 const fadeUp = {
-  initial: { opacity: 0, y: 30 },
+  initial: { opacity: 0, y: 40 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-80px" },
-  transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
+  viewport: { once: true, amount: 0.15, margin: "0px 0px -10% 0px" },
+  transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const },
 };
 
 /* ---------- Visual 1: Integration Hub ---------- */
@@ -281,7 +281,10 @@ const Row = ({
   visual: React.ReactNode;
 }) => (
   <motion.div
-    {...fadeUp}
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, amount: 0.2, margin: "0px 0px -12% 0px" }}
+    transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
     className={`grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center ${
       reverse ? "lg:[&>*:first-child]:order-2" : ""
     }`}
