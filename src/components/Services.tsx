@@ -30,7 +30,7 @@ const IntegrationHub = () => {
     { Icon: Phone, label: "Voice", angle: 60 },
     { Icon: MessageSquare, label: "WhatsApp", angle: 120 },
     { Icon: Calendar, label: "Calendar", angle: 180 },
-    { Icon: Facebook, label: "Meta", angle: 240 },
+    { Icon: Share2, label: "Meta", angle: 240 },
     { Icon: Sparkles, label: "OpenAI", angle: 300 },
   ];
 
